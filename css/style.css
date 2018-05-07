@@ -1,0 +1,33 @@
+:root{
+	/*utility*/
+	--reverse: #e88823;/*232,136,35*/
+	/*core*/
+	--black: #000;/*0,0,0*/
+	--gray: #2b2929;/*44,42,42*/
+	--yellow: #ffcc00;/*255,204,0*/
+	--orange: #ea9919;/*234,153,25*/
+	/*secondary*/
+	--red: #d24d3b;/*210,77,59*/
+	--techgreen: #d6e03e;/*214,224,62*/
+	--financegreen: #8cab3c;/*140,171,60*/
+	--cyan: #12b5ea;/*18,181,234*/
+	--blue: #056cb6;/*5,108,182*/
+	--grape: #ab79a3;/*171,121,163*/
+	/*grays*/
+	--warmgraylt: #d8cfc6;/*216,207,198*/
+	--warmgraymd: #bab0a5;/*186,176,165*/
+	--warmgraydk: #998b7d;/*153,139,125*/
+	--steelgraylt: #989898;/*152,152,152*/
+	--steelgraydk: #636363;/*99,99,99*//*is the color used in the nav*/
+	
+	/*Font*/
+	--mainfont:;/*Ask about how this shoud be used/ met*/
+}
+
+html{
+	background-color: var(--steelgraydk);
+}
+body{
+	background-color: var(--warmgraylt);
+}
+
