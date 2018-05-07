@@ -21,13 +21,27 @@
 	--steelgraydk: #636363;/*99,99,99*//*is the color used in the nav*/
 	
 	/*Font*/
-	--mainfont:;/*Ask about how this shoud be used/ met*/
+	--mainfont: LatoWeb, Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;/*Ask about how this shoud be used/ met*/
+	
+	/*images*/
+	--mainicon: url('https://instructure-uploads.s3.amazonaws.com/account_86650/attachments/112328206/nc_monogram-oncharcoal.png');
+	--favicon: url('https://instructure-uploads.s3.amazonaws.com/account_86650/attachments/112327819/favicon32x32-charcoal-100.jpg');
+	--fullicon: url('https://instructure-uploads.s3.amazonaws.com/account_86650/attachments/112327822/nc_horiz-fc-oncharcoal.png');
 }
 
 html{
 	background-color: var(--steelgraydk);
+	width: 100%;
+	height: 100%;
+	font-family: var(--mainfont);
+}
+.home{
+	background-image: var(--mainicon);
+	background-size: cover;
+    box-shadow: 0 -115px 100px -60px var(--steelgraylt) inset;
+	/*the neumont one has the shadow's height increase with the page height, so -105px, I'm close but not quite on point*/
 }
 body{
-	background-color: var(--warmgraylt);
+	color: white;
 }
 
