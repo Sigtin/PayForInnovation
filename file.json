@@ -1,0 +1,22 @@
+{
+	"calendar":[
+		{"date": "",
+		 "time": "",
+		 "event-name": "",
+		 "details": ""}
+	],
+	"awards":[
+		{"award-name":"",
+		"person":"",
+		"date":"",
+		"details":"",
+		"image":""}
+	],
+	"projects":[
+		{"project-name":"",
+		"date-started":"",
+		"details":"",
+		"image":""}
+	]
+
+}
