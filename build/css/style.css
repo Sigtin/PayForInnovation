@@ -2,17 +2,17 @@
 	/*utility*/
 	--reverse: #e88823;/*232,136,35*/
 	/*core*/
-	--black: #000;/*0,0,0*/
-	--gray: #2b2929;/*44,42,42*/
-	--yellow: #ffcc00;/*255,204,0*/
-	--orange: #ea9919;/*234,153,25*/
+	--blackn: #000;/*0,0,0*/
+	--grayn: #2b2929;/*44,42,42*/
+	--yellown: #ffcc00;/*255,204,0*/
+	--orangen: #ea9919;/*234,153,25*/
 	/*secondary*/
-	--red: #d24d3b;/*210,77,59*/
-	--techgreen: #d6e03e;/*214,224,62*/
-	--financegreen: #8cab3c;/*140,171,60*/
-	--cyan: #12b5ea;/*18,181,234*/
-	--blue: #056cb6;/*5,108,182*/
-	--grape: #ab79a3;/*171,121,163*/
+	--redn: #d24d3b;/*210,77,59*/
+	--techgreenn: #d6e03e;/*214,224,62*/
+	--financegreenn: #8cab3c;/*140,171,60*/
+	--cyann: #12b5ea;/*18,181,234*/
+	--bluen: #056cb6;/*5,108,182*/
+	--grapen: #ab79a3;/*171,121,163*/
 	/*grays*/
 	--warmgraylt: #d8cfc6;/*216,207,198*/
 	--warmgraymd: #bab0a5;/*186,176,165*/
@@ -27,35 +27,239 @@
 	--mainicon: url('https://instructure-uploads.s3.amazonaws.com/account_86650/attachments/112328206/nc_monogram-oncharcoal.png');
 	--favicon: url('https://instructure-uploads.s3.amazonaws.com/account_86650/attachments/112327819/favicon32x32-charcoal-100.jpg');
 	--fullicon: url('https://instructure-uploads.s3.amazonaws.com/account_86650/attachments/112327822/nc_horiz-fc-oncharcoal.png');
+	
+	--headfootback: var(--blackn);
+	--htmlback: var(--grayn);
+	--mainback: #e0e0e0;
+	
 }
-
-html{
-	background-color: var(--steelgraydk);
-	width: 100%;
-	height: 100%;
-	font-family: var(--mainfont);
-}
-.home{
-	background-image: var(--mainicon);
-	background-size: cover;
-    box-shadow: 0 -115px 100px -60px var(--steelgraylt) inset;
-	/*the neumont one has the shadow's height increase with the page height, so -105px, I'm close but not quite on point*/
-}
-body{
-	color: white;
-}
-
-button{
-	width: 50px;
-	height: 50px;
-}
+/*By passing bootstrap*/
+/*nav*/
 .navbar-brand{
 /*	background-color: aqua;*/
-	background-image: var(--fullicon);
+	background-image: url('https://instructure-uploads.s3.amazonaws.com/account_86650/attachments/112327822/nc_horiz-fc-oncharcoal.png');
 	width: 165px;
 	height: 55px;
 	background-size: cover;
-	margin: -10px 0;
+	margin: 0;
 	padding: 0;
 }
+.sticky-top{
+	position: sticky;
+	top:0;
+}
+#navbar-n{
+	background-color: var(--headfootback);
+	padding: 0;
+	margin: 0;
+	min-width: 240px;
+}
+.nav-item{
+	min-height: 50px;
+	padding: 0;
+}
+.navbar-dark a{
+	color: var(--yellown);	
+}
+.nav-links{
+/*	padding: 7px 10px 3px 10px;*/
+	font-weight: 600;
+	padding: 4px 5px 0 5px;
+	color: var(--warmgraymd);
+}
+.nav-item:hover{
+	background-color: var(--yellown); 
+}
+.nav-item:hover .nav-link .nav-links{
+	color: white;
+}
+.navbar-nav .active .nav-links i{
+	color: var(--reverse);
+}
+
+/*nav icons*/
+.navbar-nav .active .nav-links{
+	color: var(--yellown);
+}
+.nav-item .material-icons{
+	font-size: 30px;
+}
+#hamburger-btn{
+	border: none;
+	border-radius: 0;
+	height: 55px;
+	padding: 10px;
+/*	border-left: 3px solid white;*/
+/*	background-color: transparent;*/
+}
+/*
+#hamburger-btn:hover{
+	background-color: var(--steelgraydk);
+}
+*/
+#hamburger{
+	color: white;
+	font-size: 35px;
+}
+
+/*boot body*/
+.container{
+	padding: 0;
+	background-color: var(--mainback);
+}
+
+/*carousel*/
+.carousel-container{
+	margin: 0 -15px;	
+}
+.slide{
+	background-color: black;
+	text-align: center;
+	padding: 3px 0;
+	width: 100%;
+}
+ .carousel-inner img {
+      max-width: 100%;
+      max-height: 400px;
+  }
+.carousel-indicators>li:hover{
+	background-color: var(--yellown);
+}
+
+/*generic elements*/
+html{
+	background-color: var(--htmlback);
+	font-family: var(--mainfont);
+	min-width: 240px;
+}
+.home{
+/*	background-image: var(--mainicon);*/
+/*	background-size: cover;*/
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-attachment: fixed;
+    box-shadow: 0 -115px 100px -60px var(--steelgraylt) inset;
+	/*the neumont one has the shadow's height increase with the page height, so -105px, I'm close but not quite on point*/
+}
+.body{
+	color: black;
+	padding-top: 55px;
+	background-color: transparent;
+}
+.main{
+	padding: 15px 0;
+	margin: 0;
+}
+footer{
+	position: static;
+	bottom: 0;
+	background-color: var(--headfootback);
+	color: white;
+	min-height: 30px;
+	margin: 0;
+}
+footer>div{
+	padding: 3px 1em 0 1em;
+}
+.btn-n{
+	background-color: var(--steelgraylt);
+	border: 3px solid var(--steelgraydk);
+	border-radius: 6px;
+	padding: .25em 1em;
+	font-weight: 600;
+	color: white;
+	transition: 0.5s;
+}
+.btn-n:hover{
+	cursor: pointer;
+	background-color: var(--orangen);
+}
+html h1{
+/*	text-decoration: underline solid white;*/
+	color: var(--yellown);
+	text-shadow: 3px 0.5px 4px var(--orangen);
+}
+html hr{
+	border: none;
+	border-top: 1px outset white;
+	border-bottom: 1px outset white;
+	border-radius: 3px;
+}
+
+/*Add-on classes*/
+.box{
+	margin: 3px -15px;
+	padding: 10px 0;
+/*	background-color: var(--mainback);*/
+}
+.curve-border{
+	border-radius: 50px;
+	border-top-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+.text-shadow{	
+	text-shadow: 3px 0.5px 4px var(--orangen);
+}
+.border{
+	border: 3px solid black;
+}
+.border-h{
+	border: none;
+	border-top: 3px solid black;	
+	border-bottom: 3px solid black;
+}
+.border-v{
+	border: none;
+	border-right: 3px solid black;	
+	border-left: 3px solid black;	
+}
+.hr-v{
+	border: none;
+	border-right: 1px outset white;
+	border-left: 1px outset white;
+	border-radius: 3px;	
+	height: 100%;
+	min-height: 50px;
+	width: 0;
+	display: inline;
+	margin: 1px 5px;
+}
+/*color classes*/
+.color-b{		color: var(--blackn);}
+.color-w{		color: white;}
+.color-reverse{	color: var(--reverse);}
+.color-grape{	color: var(--grapen);}
+.color-blue{	color: var(--bluen);}
+.color-cyan{	color: var(--cyann);}
+.color-red{		color: var(--redn);}
+.color-financeg{color: var(--financegreenn);}
+.color-techg{	color: var(--techgreenn);}
+.color-yellow{	color: var(--yellown);}
+.color-orange{	color: var(--orangen);}
+/*color backgrounds*/
+.back-b{		background-color: var(--blackn);}
+.back-w{		background-color: white;}
+.back-reverse{	background-color: var(--reverse);}
+.back-grape{	background-color: var(--grapen);}
+.back-blue{		background-color: var(--bluen);}
+.back-cyan{		background-color: var(--cyann);}
+.back-red{		background-color: var(--redn);}
+.back-financeg{	background-color: var(--financegreenn);}
+.back-techg{	background-color: var(--techgreenn);}
+.back-yellow{	background-color: var(--yellown);}
+.back-orange{	background-color: var(--orangen);}
+/*border colors*/
+.border-b{			border-color: var(--blackn);}
+.border-w{			border-color: white;}
+.border-reverse{	border-color: var(--reverse);}
+.border-grape{		border-color: var(--grapen);}
+.border-blue{		border-color: var(--bluen);}
+.border-cyan{		border-color: var(--cyann);}
+.border-red{		border-color: var(--redn);}
+.border-financeg{	border-color: var(--financegreenn);}
+.border-techg{		border-color: var(--techgreenn);}
+.border-yellow{		border-color: var(--yellown);}
+.border-orange{		border-color: var(--orangen);}
+
+
 

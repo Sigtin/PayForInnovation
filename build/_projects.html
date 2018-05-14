@@ -4,53 +4,118 @@
 <head>
 	<link rel="shortcut icon" href="https://instructure-uploads.s3.amazonaws.com/account_86650/attachments/112327819/favicon32x32-charcoal-100.jpg">
 	<title>Active Projects</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-	 crossorigin="anonymous">
 	<link rel=stylesheet href="css/style.css" type="text/css">
-	<meta name="viewport" content="width=device-width">
-	<!--		<script src="js/main.js"></script>-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!--Google Icons-->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	
+	<script type="text/javascript" src="../build/json/projects.json"></script>
+	<script type="text/javascript">
+		function load() {
+			var mydata = JSON.parse(data);
+			alert(mydata.length);
+			for (var i = 0; i < mydata.length; i++) {
+				var carddata = mydata[i];
+				var name = document.getElementById('name'+i);
+				var date = document.getElementById('date'+i);
+				var details = document.getElementById('details'+i);
+				var image = document.getElementById('image'+i);
+				name.innerHTML = carddata[0];
+				date.innerHTML = carddata[1];
+				details.innerHTML = carddata[2];
+				image.src = carddata[3];
+			}
+		}
+	</script>
 </head>
-
-<body>
-	<nav class="navbar navbar-expand-sm bg-dark navbar-inverse">
-    <div class="navbar-header">
-      <a href="index.html">
+<body class="body home">
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top" id="navbar-n">
+<!--      <a href="index.html">-->
 		<div class="navbar-brand">
 		</div>
-		</a>		
-		 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span> 
+<!--		</a>-->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" id="hamburger-btn">
+        <span class="material-icons" id="hamburger">dehaze</span>
       </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item"><a href="index.html" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Home">
+			  <div class="nav-links"><i class="material-icons">home</i></div></a></li>
+			<li class="nav-item"><a href="_calendar.html" class="nav-link">
+				<div class="nav-links" title="Calendar"><i class="material-icons">perm_contact_calendar</i></div></a></li>
+			<li class="nav-item active"><a href="_projects.html" class="nav-link">
+				<div class="nav-links">Projects</div></a></li>
+			<li class="nav-item"><a href="_contact.html" class="nav-link">
+				<div class="nav-links">Contact Us</div></a></li>
+          <li class="nav-item"><a href="_application.html" class="nav-link">
+			  <div class="nav-links">Apply</div></a></li>
+        </ul>        
+      </div>
+    </nav>
+	<main class="container main">
+		<h1>Active Projects</h1>
+	<div id="cards" onload='load()'>
+		<div class="card" id="card0">
+			<div class="card-header bg-dark" id="name0"></div>
+			<div class="card-body bg-secondary">
+				<p id='date0'>
+				</p>
+				<p id='details0'>
+				</p>
+				<img id='image0'>
+			</div>
 		</div>
-		  <div class="collapse navbar-collapse" id="navbarCollapse">
-		<ul class="navbar-nav mr-auto">
-			<li class="nav-item"><a href="_application.html" class="nav-link">Apply</a></li>
-			<li class="nav-item"><a href="_calendar.html" class="nav-link">Calendar</a></li>
-			<li class="nav-item"><a href="_projects.html" class="nav-link">Projects</a></li>
-			<li class="nav-item"><a href="_contact.html" class="nav-link">Contact Us</a></li>
-		</ul>
+		<div class="card" id="card1">
+			<div class="card-header bg-dark" id="name1"></div>
+			<div class="card-body bg-secondary">
+				<p id='date1'>
+				</p>
+				<p id='details1'>
+				</p>
+				<img id='image1'>
+			</div>
 		</div>
-	</nav>
-	<div class="card">
-		<div class="card-header bg-dark">Project 1</div>
-		<div class="card-body bg-secondary">
-			<p>
-				Date Started: blah blah blah
-			</p>
-			<p>
-				Details: blah blah blah
-			</p>
-			<p>
-				Image: blah blah blah
-			</p>
+		<div class="card" id="card2">
+			<div class="card-header bg-dark" id="name2"></div>
+			<div class="card-body bg-secondary">
+				<p id='date2'>
+				</p>
+				<p id='details2'>
+				</p>
+				<img id='image2'>
+			</div>
+		</div>
+		<div class="card" id="card3">
+			<div class="card-header bg-dark" id="name3"></div>
+			<div class="card-body bg-secondary">
+				<p id='date3'>
+				</p>
+				<p id='details3'>
+				</p>
+				<img id='image3'>
+			</div>
+		</div>
+		<div class="card" id="card4">
+			<div class="card-header bg-dark" id="name4"></div>
+			<div class="card-body bg-secondary">
+				<p id='date4'>
+				</p>
+				<p id='details4'>
+				</p>
+				<img id='image4'>
+			</div>
 		</div>
 	</div>
+		</main>
 </body>
-	 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>	
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<footer>
+		<div><p>hello I am foot!</p></div>
+	</footer>
+	 <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
 </html>
