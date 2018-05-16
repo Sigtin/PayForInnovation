@@ -3,7 +3,7 @@
 
 <head>
 	<link rel="shortcut icon" href="https://instructure-uploads.s3.amazonaws.com/account_86650/attachments/112327819/favicon32x32-charcoal-100.jpg">
-	<title>Apply</title>
+	<title>Project Application</title>
 	<link rel=stylesheet href="css/style.css" type="text/css">
 	<meta name="viewport" content="width=device-width">
 	<!-- Bootstrap CSS -->
@@ -14,30 +14,9 @@
 
 <body class="body home">
 	<nav class="navbar navbar-expand-md navbar-dark fixed-top" id="navbar-n">
-<!--      <a href="index.html">-->
-		<div class="navbar-brand">
-		</div>
-<!--		</a>-->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" id="hamburger-btn">
-        <span class="material-icons" id="hamburger">dehaze</span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active"><a href="index.html" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Home">
-			  <div class="nav-links"><i class="material-icons">home</i></div></a></li>
-			<li class="nav-item"><a href="_calendar.html" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Calendar">
-				<div class="nav-links"><i class="material-icons">perm_contact_calendar</i></div></a></li>
-			<li class="nav-item"><a href="_projects.html" class="nav-link">
-				<div class="nav-links">Projects</div></a></li>
-			<li class="nav-item"><a href="_contact.html" class="nav-link">
-				<div class="nav-links">Contact Us</div></a></li>
-          <li class="nav-item"><a href="_application.html" class="nav-link">
-			  <div class="nav-links">Apply</div></a></li>
-        </ul>        
-      </div>
     </nav>
 	<main class="container main">
-		<h1>Application Form</h1>
+		<h1>Project Application Form</h1>
 		<form action="_applicationsubmitted.html">
 		<div class="form-group">
 			<input type="email" class="form-control" id="email" placeholder="Email:">
@@ -50,13 +29,18 @@
 	<br>
 	<p class="text-dark">Application Process Placeholder</p>
 </main>
-</body>
-	<footer>
-		<div><p>hello I am foot!</p></div>
-	</footer>
+</body>	
+	<footer id="foot-area"/>
+	
+	<script src="script.js"></script>
 	 <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
 </html>

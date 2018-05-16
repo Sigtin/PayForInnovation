@@ -1,28 +1,28 @@
 {
-	"data": [
+	"project-info": [
 		{
-			"project-name": "Project 1",
-			"date-started": "5/11/2018",
+			"name": "Project 1",
+			"date": "5/11/2018",
 			"details": "This is a dummy project blah blah blah",
-			"image": "../images/hulk.png"
+			"image": "../images/projects/nc_default.png"
 		},
 		{
-			"project-name": "Project 2",
-			"date-started": "5/11/2018",
+			"name": "Project 2",
+			"date": "5/11/2018",
 			"details": "This is a dummy project blah blah blah",
-			"image": "../images/hulk.png"
+			"image": "../images/projects/nc_default.png"
 		},
 		{
-			"project-name": "Project 3",
-			"date-started": "5/11/2018",
+			"name": "Project 3",
+			"date": "5/11/2018",
 			"details": "This is a dummy project blah blah blah",
-			"image": "../images/hulk.png"
+			"image": "../images/projects/nc_default.png"
 		},
 		{
-			"project-name": "Project 4",
-			"date-started": "5/11/2018",
+			"name": "Project 4",
+			"date": "5/11/2018",
 			"details": "This is a dummy project blah blah blah",
-			"image": "../images/hulk.png"
+			"image": "../images/projects/nc_default.png"
 		}
 	]
 }
