@@ -1,0 +1,59 @@
+{
+	"calendar-info":[
+		{
+			"date": "May 15",
+			"month": "May",
+			"day": 15,
+			"time": "11 AM",
+			"location": "Lassonde Center",
+			"event": "Startup Speed Interview Session"
+		},
+		{
+			"date": "May 15",
+			"month": "May",
+			"day": 15,
+			"time": "12 PM",
+			"location": "Lassonde Center",
+			"event": "Hours with Experts: Legal Support"
+		},
+		{
+			"date": "May 16",
+			"month": "May",
+			"day": 16,
+			"time": "12 PM",
+			"location": "Lassonde Center",
+			"event": "Workshops: Financial Models"
+		},
+		{
+			"date": "May 22",
+			"month": "May",
+			"day": 22,
+			"time": "12 PM",
+			"location": "Lassonde Center",
+			"event": "Hours with Experts: Accounting"
+		},
+		{
+			"date": "May 23",
+			"month": "May",
+			"day": 23,
+			"time": "7 PM",
+			"location": "Neumont Innovation Center",
+			"event": "Innovation Center Update"
+		},
+		{
+			"date": "May 25",
+			"month": "May",
+			"day": 25,
+			"time": "7 PM",
+			"location": "Neumont Innovation Center",
+			"event": "Tiger Fish Tank"
+		},
+		{
+			"date": "May 31",
+			"month": "May",
+			"day": 31,
+			"time": "7 PM",
+			"location": "Neumont Innovation Center",
+			"event": "Get Seeded Application Process"}
+	]
+}

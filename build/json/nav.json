@@ -1,0 +1,39 @@
+{
+	"nav-info": [
+		{
+			"name":"Home",
+			"href":"index.html",
+			"icon": "awasome",
+			"iconpath":"fa-home"
+		},
+		{
+			"name":"Calendar",
+			"href":"_calendar.html",
+			"icon": "awasome",
+			"iconpath":"fa-calendar\" style=\"font-size:28px"
+		},
+		{
+			"name":"Projects",
+			"href":"_projects.html",
+			"icon": "awasome",
+			"iconpath":"fa-rocket"
+		},
+		{
+			"name":"Apply",
+			"href":"_application.html",
+			"icon": "awasome",
+			"iconpath":"fa-paper-plane"
+		},
+		{
+			"name":"Awards",
+			"href":"_awards.html",
+			"icon":"award"
+		},
+		{
+			"name":"Contact Us",
+			"href":"_contact.html",
+			"icon":"awasome",
+			"iconpath":"fa-id-card-o"
+		}
+	]
+}

@@ -73,7 +73,7 @@
 .nav-item:hover .nav-link .nav-links{
 	color: white;
 }
-.navbar-nav .active .nav-links i{
+.navbar-nav .active .nav-links i:first-child{
 	color: var(--reverse);
 }
 .navbar-nav .active .nav-links{
@@ -81,8 +81,11 @@
 }
 
 /*nav icons*/
-.nav-item .material-icons{
+.nav-item i{
 	font-size: 30px;
+}
+.nav-item .sidetitle{
+	display: none;
 }
 #hamburger-btn{
 	border: none;
@@ -118,7 +121,7 @@
 	padding: 3px 0;
 	width: 100%;
 }
- .carousel-inner img {
+.carousel-inner img {
       max-width: 100%;
       max-height: 400px;
   }
@@ -135,10 +138,16 @@ html{
 .home{
 /*	background-image: var(--mainicon);*/
 /*	background-size: cover;*/
-    background-repeat: no-repeat;
-    background-position: left top;
-    background-attachment: fixed;
+/*    background-repeat: no-repeat;*/
+/*    background-position: left top;*/
+/*    background-attachment: fixed;*/
     box-shadow: 0 -115px 100px -60px var(--steelgraylt) inset;
+	
+/*
+	background-attachment:fixed;	 
+    min-height: calc(100vh - 96px);
+    background-repeat: repeat;
+*/
 	/*the neumont one has the shadow's height increase with the page height, so -105px, I'm close but not quite on point*/
 }
 .body{
@@ -178,7 +187,7 @@ footer>div{
 html h1{
 /*	text-decoration: underline solid white;*/
 	color: var(--yellown);
-	text-shadow: 3px 0.5px 4px var(--orangen);
+	text-shadow: 3px 0.5px 4px var(--grayn);
 }
 html hr{
 	border: none;
@@ -214,7 +223,7 @@ html .project-card{
 	text-align: center;
 }
 html .project-card .card-img {
-	background-color: red;
+/*	background-color: red;*/
 	border: 3px solid var(--techgreenn);
 	border-right: none;
 	background-color: var(--grayn);
@@ -243,12 +252,62 @@ html .project-card .card-info h6 {
 	padding-top: .15em;
 }
 html .project-card .card-image img{
-	margin-left: -15px;
+/*	margin-left: -15px;*/
 	border-radius: 0;
-	background-color: white;
 	color: white;
 	max-height: 150px;
 	max-width: 150px;
+	background-color: var(--grayn);
+}
+
+/*award-cards*/
+html .award-card{
+	border-radius: 0;
+/*	border-top-right-radius: 50px;*/
+	background-color: var(--grayn);
+	color: white;
+	border: 3px solid var(--yellown);
+	padding: 0;
+	margin: 10px 5px;
+/*	display: inline-flex;*/
+	text-align: center;
+}
+html .award-card .card-img {
+/*	background-color: red;*/
+	border: 3px solid var(--yellown);
+	border-right: none;
+/*	background-color: var(--grayn);*/
+}
+html .award-card .card-info{
+	text-align: left;
+	width: 100%;
+	min-height: 100px;
+	background-color: var(--cyann);
+	display: block;
+	overflow: hidden;
+	color: white;
+	width: 100%;
+	padding-bottom: 10px;
+}
+html .award-card .card-head{
+	display: block;
+	background-color: var(--steelgraylt);
+	color: white;
+	padding: .4em 1em;
+}
+html .award-card .card-info h6 {
+	color:black;
+	padding-top: .15em;
+}
+html .award-card .card-image img{
+/*	margin-left: -15px;*/
+	margin: 5px 0;
+	border-radius: 0;
+	color: white;
+	min-height: 100px;
+	max-height: 100px;
+/*	max-width: 150px;*/
+/*	background-color: var(--grayn);*/
 }
 
 /*contact-cards*/

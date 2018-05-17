@@ -1,7 +1,3 @@
-const name = 'World';
-
-console.log(`Hello, ${name}!`);
-
 function buildElementsC(jsondata){
 var el = "";
 var x;
@@ -24,11 +20,12 @@ var el = "";
 var x;
 //for(var i=0; i<1; i++){
 //	x=jsondata[i];
-//	el +='<div class="card" id="card_"><div class="card-header bg-dark" id="name_">'+x.name+'</div><div class="card-body bg-secondary"><p id="date_">'+x.date+'</p><p id="details_">'+x.details+'</p><img id="image_" src="'+x.image+'"></div></div>';
+//	el +='<div class="card" id="card_"><div class="card-header bg-dark" id="name_">'+x.name+'</div><div class="card-body bg-secondary"><p id="date_">'+x.date+'</p><p id="details_">'+x.details+'</p><img id="image_" src="'+x.image+'"></div></div>'
+//	<div class="col-lg-2 card-image"><img src="'+x.image+'" alt="This Project\'s image could not be found."></div>;
 //}
 	for(var i=0; i<jsondata.length; i++){
 	x=jsondata[i];
-	el +='<div class="row project-card"><div class="col-lg-2 card-image"><img src="'+x.image+'" alt="This Project\'s image could not be found."></div><div class="col-lg-10 card-info"><div class="row card-head"><h4>'+x.name+'</h4></div><div class="row"><div class="col-sm-7"><h6>Start Date:</h6></div><div class="col-sm-5 align-r"><p>'+x.date+'</p></div></div><div class="row"><div class="col-md-2"><h6>Details:</h6></div><div class="col-md-10"><p>'+x.details+'</p></div></div></div></div>';
+	el +='<div class="project-card"><div class="card-info"><div class="row card-head"><h4>'+x.name+'</h4></div><div class="row"><div class="col-md-2"><h6>Project Details:</h6></div><div class="col-md-10"><p>'+x.details+'</p></div></div></div></div>';
 	}
 	
 	var	contentHolder = document.getElementById("projects-area");
@@ -124,11 +121,13 @@ loadNav();
 function loadNav() {
 	requestNav.open('GET', 'json/nav.json');
 	requestNav.onload = loadCompleteNav;
-  	requestNav.send();	
+  	requestNav.send();
 } 
 function loadCompleteNav(evt) {
   	dataX = JSON.parse(requestNav.responseText);
 	buildNav(dataX["nav-info"]);
+	
+	resized();
 }
 function buildNav(jsondata){
 	var el = "";
@@ -139,36 +138,22 @@ function buildNav(jsondata){
      el +='<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" id="hamburger-btn"><span class="material-icons" id="hamburger">dehaze</span></button>';
 	//build
 	el+='<div class="collapse navbar-collapse" id="navbarCollapse"><ul class="navbar-nav mr-auto">';
+	
 	for(var i=0; i<jsondata.length; i++){
 		x=jsondata[i];
-		if(x.icon=="awasome2"){
-			el+='<li class="nav-item '+x.href+'"><a href="'+x.href+'" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="'+x.name+'"><div class="nav-links"><span class="fa-stack fa-lg" style="margin:-5px;margin-top:0;padding:0"><i class="fa fa-certificate fa-stack-2x"></i><i class="fa fa-circle fa-stack-1x fa-inverse" style="font-size:18px;margin-top:-6px"></i></span></div></a></li>';
+		if(x.icon=="award"){
+			el+='<li class="nav-item" id="'+x.href+'"><a href="'+x.href+'" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="'+x.name+'"><div class="nav-links"><span class="fa-stack fa-lg" style="margin-bottom:-10px;margin-top:-4px;padding:0"><i class="fa fa-certificate fa-stack-2x" style="font-size:30px"></i><i class="fa fa-chevron-up fa-stack-3x fa-inverse" style="font-size:28px;margin-top:8px;margin-left:7.5px"></i><i class="fa fa-circle fa-stack-1x fa-inverse" style="font-size:18px;margin-top:-6.5px"></i></span><span class="sidetitle"> '+x.name+'</span></div></a></li>';
 		}
 		else if(x.icon=="awasome"){
-			el+='<li class="nav-item '+x.href+'"><a href="'+x.href+'" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="'+x.name+'"><div class="nav-links"><i class="fa '+x.iconpath+'"></i></div></a></li>';
+			el+='<li class="nav-item" id="'+x.href+'"><a href="'+x.href+'" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="'+x.name+'"><div class="nav-links"><i class="fa '+x.iconpath+'"></i><span class="sidetitle"> '+x.name+'</span></div></a></li>';
 		}
-		else if(x.icon=="google"){		
-			el+='<li class="nav-item '+x.href+'"><a href="'+x.href+'" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="'+x.name+'"><div class="nav-links"><i class="material-icons">'+x.iconpath+'</i></div></a></li>';
-		}
+//		else if(x.icon=="google"){		
+//			el+='<li class="nav-item" id="'+x.href+'"><a href="'+x.href+'" class="nav-link iconed" data-toggle="tooltip" data-placement="bottom" title="'+x.name+'"><div class="nav-links iconed-inner"><i class="material-icons">'+x.iconpath+'</i></div></a></li>';
+//		}
 		else{					
-			el+='<li class="nav-item '+x.href+'"><a href="'+x.href+'" class="nav-link"><div class="nav-links">'+x.name+'</div></a></li>';
+			el+='<li class="nav-item" id="'+x.href+'"><a href="'+x.href+'" class="nav-link"><div class="nav-links">'+x.name+'</div></a></li>';
 		}
 	}
-//	for(var i=0; i<jsondata.length; i++){
-//		x=jsondata[i];
-//		if(x.icon=="awasome2"){
-//			el+='<li class="nav-item" id="'+x.href+'"><a href="'+x.href+'" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="'+x.name+'"><div class="nav-links"><span class="fa-stack fa-lg" style="margin:-5px;margin-top:0;padding:0"><i class="fa fa-certificate fa-stack-2x"></i><i class="fa fa-circle fa-stack-1x fa-inverse" style="font-size:18px;margin-top:-6px"></i></span></div></a></li>';
-//		}
-//		else if(x.icon=="awasome"){
-//			el+='<li class="nav-item" id="'+x.href+'"><a href="'+x.href+'" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="'+x.name+'"><div class="nav-links"><i class="fa '+x.iconpath+'"></i></div></a></li>';
-//		}
-//		else if(x.icon=="google"){		
-//			el+='<li class="nav-item" id="'+x.href+'"><a href="'+x.href+'" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="'+x.name+'"><div class="nav-links"><i class="material-icons">'+x.iconpath+'</i></div></a></li>';
-//		}
-//		else{					
-//			el+='<li class="nav-item" id="'+x.href+'"><a href="'+x.href+'" class="nav-link"><div class="nav-links">'+x.name+'</div></a></li>';
-//		}
-//	}
 	el+='</ul></div>';			  
 			  
 	var conHol = document.getElementById("navbar-n");
@@ -183,19 +168,41 @@ function setActive(){
 		page="_application.html";
 	}
 	
-	var temps = document.getElementsByClassName(page);
-	var i;
-	for(i=0; i<temps.length; i++){
-		temps[i].className +=" active";
+//	var temps = document.getElementsByClassName(page);
+//	var i;
+//	for(i=0; i<temps.length; i++){
+//		temps[i].className +=" active";
+//	}	
+	var temp = document.getElementById(page);
+	if(temp != null){
+		temp.className +=" active";		
 	}
-	
-//	var temp = document.getElementById(page);
-//	if(temp != null){
-//		console.log("active set");
-//		temp.className +=" active";		
-//	}
 }
+//function setToolTip(){
+//	
+//$(document).ready(function(){
+//    $('[data-toggle="tooltip"]').tooltip();   
+//});
+//}
 
+function resized(){
+	if(window.innerWidth<768){ showtitles();}
+	else{ hidetitles();}
+}
+function showtitles(){
+	var iconed = document.getElementsByClassName("sidetitle");
+	var i;
+	for(i=0; i<iconed.length; i++){
+		iconed[i].style.display = "inline";
+	}
+}
+function hidetitles(){
+	var iconed = document.getElementsByClassName("sidetitle");
+	var i;
+	for(i=0; i<iconed.length; i++){
+		iconed[i].style.display = "none";
+	}
+}
 
 //Foot
 var requestFoot = new XMLHttpRequest();

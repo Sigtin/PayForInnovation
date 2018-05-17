@@ -1,28 +1,12 @@
 {
 	"project-info": [
 		{
-			"name": "Project 1",
-			"date": "5/11/2018",
-			"details": "This is a dummy project blah blah blah",
-			"image": "../images/projects/nc_default.png"
+			"name": "Eric Negrete – Collage",
+			"details": "Signlate is a user-friendly, two-way translation app that will translate not only English to ASL but also ASL to English. It is meant to be a lifestyle app that can be tailored to the needs of its users. It uses 3D modeling, instead of actors, allowing it to be updated with new words and dialects. SignLate's main feature is how it allows you to look up a specific sign through keywords and tags to find its meaning in English. My future plans for the app are to implement Augmented Reality, and other languages such as British sign language, and Spanish sign language."
 		},
 		{
-			"name": "Project 2",
-			"date": "5/11/2018",
-			"details": "This is a dummy project blah blah blah",
-			"image": "../images/projects/nc_default.png"
-		},
-		{
-			"name": "Project 3",
-			"date": "5/11/2018",
-			"details": "This is a dummy project blah blah blah",
-			"image": "../images/projects/nc_default.png"
-		},
-		{
-			"name": "Project 4",
-			"date": "5/11/2018",
-			"details": "This is a dummy project blah blah blah",
-			"image": "../images/projects/nc_default.png"
+			"name": "Emily Remy – Signlate",
+			"details": "My project idea: A yelp or craigslist type of website that enables anyone to do work or teach a subject of any kind. A review, and certification system will be created to help new users prove their worth and get more job requests. <br> Why I want this idea to succeed: I'd like to see this website/application provide people with different ways to make money easily, besides YouTube, and being an Uber driver. Also with everyone having new ways to learn and teach, it'll hopefully make the world a slightly better place."
 		}
 	]
 }
