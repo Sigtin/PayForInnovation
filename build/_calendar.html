@@ -19,13 +19,119 @@
     </nav>
 	<main class="container main">
 		<h1>Calendar</h1>
-		<div id="calendars-area">
-		</div>
+<!--
+		<div id="content-wrapper" class="ic-Layout-contentWrapper">
+            
+          <div id="content" class="ic-Layout-contentMain" role="main">
+            
+<h1 class="screenreader-only">Calendar</h1>
+
+
+
+
+<div id="calendar_header"><div class="calendar_header header-table">
+  <div class="recommend_agenda screenreader-only" style="display: block;">
+    <button id="use_agenda" class="accessibility-warning">Warning: For improved accessibility, please use the "Agenda view" Calendar.</button>
+  </div>
+  <div class="header-table-row">
+    <div class="header-table-cell header-table-left">
+      <div class="calendar_navigator"><button class="navigate_today btn">Today</button>
+<span class="navigation_buttons ui-buttonset">
+  <button class="navigate_prev btn ui-button ui-widget ui-state-default ui-button-text-only ui-corner-left" role="button" aria-disabled="false"><span class="ui-button-text">
+    <i class="icon-arrow-left" aria-hidden="true"></i>
+    <span class="screenreader-only">Previous</span>
+  </span></button>
+  <button class="navigate_next btn ui-button ui-widget ui-state-default ui-button-text-only ui-corner-right" role="button" aria-disabled="false"><span class="ui-button-text">
+    <i class="icon-arrow-right" aria-hidden="true"></i>
+    <span class="screenreader-only">Next</span>
+  </span></button>
+</span>
+<h2 class="navigation_title" tabindex="-1"><span role="button" class="navigation_title_text" tabindex="0">May 2018</span></h2>
+<span class="date_field_wrapper" style="display: none;">
+    <label class="screenreader-only" id="calendar_navigation_date_accessible_label">
+      Enter the date you would like to navigate to.
+      Format Like YYYY-MM-DD
+    </label>
+    <div class="input-append"><input type="text" name="start date" style="width: 100px;" class="date_field datetime_field_enabled hasDatepicker" aria-labelledby="calendar_navigation_date_accessible_label" data-tooltip="" title="YYYY-MM-DD" id="dp1526590572607" aria-invalid="false"><button type="button" class="ui-datepicker-trigger btn" aria-hidden="true" tabindex="-1"><i class="icon-calendar-month"></i></button></div><div class="datetime_suggest"></div>
+</span>
+</div>
+      <h2 class="appointment_group_title" style="display: none;">My Appointment Groups</h2>
+      <button class="btn scheduler_done_button" style="display: none;">Done, Go Back To List</button>
+    </div>
+    <div class="calendar_action_buttons header-table-cell header-table-right">
+      <span id="refresh_calendar_link" title="Loading" data-tooltip="" class="">
+        <span class="screenreader-only">Loading</span>
+      </span>
+      <span class="calendar_view_buttons btn-group" role="tablist">
+        <button type="button" id="week" class="btn calendar-button" role="tab" aria-selected="false" aria-controls="calendar-app" tabindex="-1">
+          Week
+          <span class="screenreader-only accessibility-warning">Warning: For improved accessibility of calendar events, please use the agenda view.</span>
+        </button>
+        <button type="button" id="month" class="btn calendar-button active" role="tab" aria-selected="true" aria-controls="calendar-app" tabindex="0">
+          Month
+          <span class="screenreader-only accessibility-warning">Warning: For improved accessibility of calendar events, please use the agenda view.</span>
+        </button>
+        <button type="button" id="agenda" class="btn" role="tab" aria-selected="false" aria-controls="calendar-app" tabindex="-1">
+          Agenda
+        </button>
+        
+      </span>
+      <a href="#" id="create_new_event_link" class="btn" title="Create New Event" role="button">
+        <i class="icon-plus"></i>
+        <span class="screenreader-only">Create New Event</span>
+      </a>
+    </div>
+  </div>
+</div>
+</div>
+<div id="calendar-app" role="tabpanel" class=""><div class="scheduler-wrapper" style="display: none">
+  <div class="appointment-list">
+    <div class="list-wrapper"></div>
+  </div>
+</div>
+<div class="agenda-wrapper"></div>
+<div class="scheduler_navigator" style="display: none;"><button class="navigate_today btn">Today</button>
+<span class="navigation_buttons ui-buttonset">
+  <button class="navigate_prev btn ui-button ui-widget ui-state-default ui-button-text-only ui-corner-left" role="button" aria-disabled="false"><span class="ui-button-text">
+    <i class="icon-arrow-left" aria-hidden="true"></i>
+    <span class="screenreader-only">Previous</span>
+  </span></button>
+  <button class="navigate_next btn ui-button ui-widget ui-state-default ui-button-text-only ui-corner-right" role="button" aria-disabled="false"><span class="ui-button-text">
+    <i class="icon-arrow-right" aria-hidden="true"></i>
+    <span class="screenreader-only">Next</span>
+  </span></button>
+</span>
+<h2 class="navigation_title" tabindex="-1"><span role="button" class="navigation_title_text" tabindex="0">May 2018</span></h2>
+<span class="date_field_wrapper" style="display: none;">
+    <label class="screenreader-only" id="calendar_navigation_date_accessible_label">
+      Enter the date you would like to navigate to.
+      Format Like YYYY-MM-DD
+    </label>
+    <div class="input-append"><input type="text" name="start date" style="width: 100px;" class="date_field datetime_field_enabled hasDatepicker" aria-labelledby="calendar_navigation_date_accessible_label" data-tooltip="" title="YYYY-MM-DD" id="dp1526590572608" aria-invalid="false"><button type="button" class="ui-datepicker-trigger btn" aria-hidden="true" tabindex="-1"><i class="icon-calendar-month"></i></button></div><div class="datetime_suggest"></div>
+</span>
+</div>
+<div class="calendar fc fc-ltr fc-unthemed"><div class="fc-view-container" style=""><div class="fc-view fc-month-view fc-basic-view" style=""><table><thead class="fc-head"><tr><td class="fc-widget-header"><div class="fc-row fc-widget-header"><table><thead><tr><th class="fc-day-header fc-widget-header fc-sun">Sun</th><th class="fc-day-header fc-widget-header fc-mon">Mon</th><th class="fc-day-header fc-widget-header fc-tue">Tue</th><th class="fc-day-header fc-widget-header fc-wed">Wed</th><th class="fc-day-header fc-widget-header fc-thu">Thu</th><th class="fc-day-header fc-widget-header fc-fri">Fri</th><th class="fc-day-header fc-widget-header fc-sat">Sat</th></tr></thead></table></div></td></tr></thead><tbody class="fc-body"><tr><td class="fc-widget-content"><div class="fc-day-grid-container" style=""><div class="fc-day-grid"><div class="fc-row fc-week fc-widget-content" style="height: 87px;"><div class="fc-bg"><table><tbody><tr><td class="fc-day fc-widget-content fc-sun fc-other-month fc-past" data-date="2018-04-29"></td><td class="fc-day fc-widget-content fc-mon fc-other-month fc-past" data-date="2018-04-30"></td><td class="fc-day fc-widget-content fc-tue fc-past" data-date="2018-05-01"></td><td class="fc-day fc-widget-content fc-wed fc-past" data-date="2018-05-02"></td><td class="fc-day fc-widget-content fc-thu fc-past" data-date="2018-05-03"></td><td class="fc-day fc-widget-content fc-fri fc-past" data-date="2018-05-04"></td><td class="fc-day fc-widget-content fc-sat fc-past" data-date="2018-05-05"></td></tr></tbody></table></div><div class="fc-content-skeleton"><table><thead><tr><td class="fc-day-number fc-sun fc-other-month fc-past" data-date="2018-04-29">29</td><td class="fc-day-number fc-mon fc-other-month fc-past" data-date="2018-04-30">30</td><td class="fc-day-number fc-tue fc-past" data-date="2018-05-01">1</td><td class="fc-day-number fc-wed fc-past" data-date="2018-05-02">2</td><td class="fc-day-number fc-thu fc-past" data-date="2018-05-03">3</td><td class="fc-day-number fc-fri fc-past" data-date="2018-05-04">4</td><td class="fc-day-number fc-sat fc-past" data-date="2018-05-05">5</td></tr></thead><tbody><tr><td></td><td></td><td></td><td></td><td></td><td class="fc-event-container"><a class="fc-day-grid-event fc-h-event fc-event fc-start fc-end group_course_2316698 assignment" title="8:00 AM
+Better Web Part II: This Feels Scripted
+
+Calendar: 8:00, 325 Front-End Implementation"><div class="fc-content"><i class="icon-assignment"></i><span class="screenreader-only">Calendar: 8:00, 325 Front-End Implementation</span><span class="fc-time">8a</span> <span class="fc-title calendar__event--completed"><span class="screenreader-only">Assignment Title: </span>Better Web Part II: This Feels Scripted</span></div></a></td><td></td></tr></tbody></table></div></div><div class="fc-row fc-week fc-widget-content" style="height: 87px;"><div class="fc-bg"><table><tbody><tr><td class="fc-day fc-widget-content fc-sun fc-past" data-date="2018-05-06"></td><td class="fc-day fc-widget-content fc-mon fc-past" data-date="2018-05-07"></td><td class="fc-day fc-widget-content fc-tue fc-past" data-date="2018-05-08"></td><td class="fc-day fc-widget-content fc-wed fc-past" data-date="2018-05-09"></td><td class="fc-day fc-widget-content fc-thu fc-past" data-date="2018-05-10"></td><td class="fc-day fc-widget-content fc-fri fc-past" data-date="2018-05-11"></td><td class="fc-day fc-widget-content fc-sat fc-past" data-date="2018-05-12"></td></tr></tbody></table></div><div class="fc-content-skeleton"><table><thead><tr><td class="fc-day-number fc-sun fc-past" data-date="2018-05-06">6</td><td class="fc-day-number fc-mon fc-past" data-date="2018-05-07">7</td><td class="fc-day-number fc-tue fc-past" data-date="2018-05-08">8</td><td class="fc-day-number fc-wed fc-past" data-date="2018-05-09">9</td><td class="fc-day-number fc-thu fc-past" data-date="2018-05-10">10</td><td class="fc-day-number fc-fri fc-past" data-date="2018-05-11">11</td><td class="fc-day-number fc-sat fc-past" data-date="2018-05-12">12</td></tr></thead><tbody><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div></div><div class="fc-row fc-week fc-widget-content" style="height: 87px;"><div class="fc-bg"><table><tbody><tr><td class="fc-day fc-widget-content fc-sun fc-past" data-date="2018-05-13"></td><td class="fc-day fc-widget-content fc-mon fc-past" data-date="2018-05-14"></td><td class="fc-day fc-widget-content fc-tue fc-past" data-date="2018-05-15"></td><td class="fc-day fc-widget-content fc-wed fc-past" data-date="2018-05-16"></td><td class="fc-day fc-widget-content fc-thu fc-today fc-state-highlight" data-date="2018-05-17"></td><td class="fc-day fc-widget-content fc-fri fc-future" data-date="2018-05-18"></td><td class="fc-day fc-widget-content fc-sat fc-future" data-date="2018-05-19"></td></tr></tbody></table></div><div class="fc-content-skeleton"><table><thead><tr><td class="fc-day-number fc-sun fc-past" data-date="2018-05-13">13</td><td class="fc-day-number fc-mon fc-past" data-date="2018-05-14">14</td><td class="fc-day-number fc-tue fc-past" data-date="2018-05-15">15</td><td class="fc-day-number fc-wed fc-past" data-date="2018-05-16">16</td><td class="fc-day-number fc-thu fc-today fc-state-highlight" data-date="2018-05-17">17</td><td class="fc-day-number fc-fri fc-future" data-date="2018-05-18">18</td><td class="fc-day-number fc-sat fc-future" data-date="2018-05-19">19</td></tr></thead><tbody><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div></div><div class="fc-row fc-week fc-widget-content" style="height: 87px;"><div class="fc-bg"><table><tbody><tr><td class="fc-day fc-widget-content fc-sun fc-future" data-date="2018-05-20"></td><td class="fc-day fc-widget-content fc-mon fc-future" data-date="2018-05-21"></td><td class="fc-day fc-widget-content fc-tue fc-future" data-date="2018-05-22"></td><td class="fc-day fc-widget-content fc-wed fc-future" data-date="2018-05-23"></td><td class="fc-day fc-widget-content fc-thu fc-future" data-date="2018-05-24"></td><td class="fc-day fc-widget-content fc-fri fc-future" data-date="2018-05-25"></td><td class="fc-day fc-widget-content fc-sat fc-future" data-date="2018-05-26"></td></tr></tbody></table></div><div class="fc-content-skeleton"><table><thead><tr><td class="fc-day-number fc-sun fc-future" data-date="2018-05-20">20</td><td class="fc-day-number fc-mon fc-future" data-date="2018-05-21">21</td><td class="fc-day-number fc-tue fc-future" data-date="2018-05-22">22</td><td class="fc-day-number fc-wed fc-future" data-date="2018-05-23">23</td><td class="fc-day-number fc-thu fc-future" data-date="2018-05-24">24</td><td class="fc-day-number fc-fri fc-future" data-date="2018-05-25">25</td><td class="fc-day-number fc-sat fc-future" data-date="2018-05-26">26</td></tr></thead><tbody><tr><td rowspan="2"></td><td rowspan="2"></td><td rowspan="2"></td><td class="fc-event-container"><a class="fc-day-grid-event fc-h-event fc-event fc-start fc-end group_course_2316698 assignment" title="8:00 AM
+Pay for Innovation
+
+Calendar: 8:00, 325 Front-End Implementation"><div class="fc-content"><i class="icon-assignment"></i><span class="screenreader-only">Calendar: 8:00, 325 Front-End Implementation</span><span class="fc-time">8a</span> <span class="fc-title"><span class="screenreader-only">Assignment Title: </span>Pay for Innovation</span></div></a></td><td rowspan="2"></td><td rowspan="2"></td><td rowspan="2"></td></tr><tr><td class="fc-event-container"><a class="fc-day-grid-event fc-h-event fc-event fc-start fc-end group_course_2316698 assignment" title="8:00 AM
+Wire Me Some Pizza
+
+Calendar: 8:00, 325 Front-End Implementation"><div class="fc-content"><i class="icon-assignment"></i><span class="screenreader-only">Calendar: 8:00, 325 Front-End Implementation</span><span class="fc-time">8a</span> <span class="fc-title"><span class="screenreader-only">Assignment Title: </span>Wire Me Some Pizza</span></div></a></td></tr></tbody></table></div></div><div class="fc-row fc-week fc-widget-content" style="height: 89px;"><div class="fc-bg"><table><tbody><tr><td class="fc-day fc-widget-content fc-sun fc-future" data-date="2018-05-27"></td><td class="fc-day fc-widget-content fc-mon fc-future" data-date="2018-05-28"></td><td class="fc-day fc-widget-content fc-tue fc-future" data-date="2018-05-29"></td><td class="fc-day fc-widget-content fc-wed fc-future" data-date="2018-05-30"></td><td class="fc-day fc-widget-content fc-thu fc-future" data-date="2018-05-31"></td><td class="fc-day fc-widget-content fc-fri fc-other-month fc-future" data-date="2018-06-01"></td><td class="fc-day fc-widget-content fc-sat fc-other-month fc-future" data-date="2018-06-02"></td></tr></tbody></table></div><div class="fc-content-skeleton"><table><thead><tr><td class="fc-day-number fc-sun fc-future" data-date="2018-05-27">27</td><td class="fc-day-number fc-mon fc-future" data-date="2018-05-28">28</td><td class="fc-day-number fc-tue fc-future" data-date="2018-05-29">29</td><td class="fc-day-number fc-wed fc-future" data-date="2018-05-30">30</td><td class="fc-day-number fc-thu fc-future" data-date="2018-05-31">31</td><td class="fc-day-number fc-fri fc-other-month fc-future" data-date="2018-06-01">1</td><td class="fc-day-number fc-sat fc-other-month fc-future" data-date="2018-06-02">2</td></tr></thead><tbody><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div></div></div></div></td></tr></tbody></table></div></div></div>
+</div>
+<div id="calendar-drag-and-drop-container"></div>
+
+          </div>
+        </div>
+-->
+<!--		<div id="calendars-area"></div>-->
 </main>
 </body>
 	<footer id="foot-area"/>
 	<script src="script.js"></script>
-	 <!-- Optional JavaScript -->
+	 <!-- Optional JavaScript 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

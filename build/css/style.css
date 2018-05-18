@@ -66,6 +66,10 @@
 	font-weight: 600;
 	padding: 4px 5px 0 5px;
 	color: var(--warmgraymd);
+	overflow: hidden;
+}
+#navbarCollapse{
+	padding: 0 10px;
 }
 .nav-item:hover{
 	background-color: var(--yellown); 
@@ -83,9 +87,12 @@
 /*nav icons*/
 .nav-item i{
 	font-size: 30px;
+	height: 35px;
 }
 .nav-item .sidetitle{
 	display: none;
+	position:absolute;
+	left: 70px;
 }
 #hamburger-btn{
 	border: none;
@@ -209,25 +216,39 @@ html p{
 	padding: 0 1em;
 	margin: 0;
 }
+html label{
+	font-weight: 700;	
+}
 
 /*project-cards*/
 html .project-card{
+/*
 	border-radius: 0;
-/*	border-top-right-radius: 50px;*/
 	background-color: var(--financegreenn);
-	color: white;
 	border: 3px solid var(--techgreenn);
 	padding: 0;
 	margin: 10px;
-/*	display: inline-flex;*/
 	text-align: center;
+*/
+	margin: 15px 5px;
+	border-radius: 0;
+	border-top-right-radius: 50px;
 }
+/*
 html .project-card .card-img {
-/*	background-color: red;*/
 	border: 3px solid var(--techgreenn);
 	border-right: none;
 	background-color: var(--grayn);
 }
+html .project-card .card-image img{
+	*margin-left: -15px;*
+	border-radius: 0;
+	color: white;
+	max-height: 150px;
+	max-width: 150px;
+	background-color: var(--grayn);
+}*/
+/*
 html .project-card .card-info{
 	text-align: left;
 	width: 100%;
@@ -238,26 +259,44 @@ html .project-card .card-info{
 	color: white;
 	width: 100%;
 }
-html .project-card .card-info > .row{
-	padding: .5em 1.5em;
-}
+*/
 html .project-card .card-head{
+	text-align: left;
+	margin: 0;
 	display: block;
 	background-color: var(--steelgraydk);
 	color: white;
-	padding: .4em 1em;
-}
-html .project-card .card-info h6 {
-	color: var(--orangen);
-	padding-top: .15em;
-}
-html .project-card .card-image img{
-/*	margin-left: -15px;*/
+	padding-top: .4em;
+	padding-right: 2em;
+	padding-left: 1.2em;
+	padding-bottom: .1em;
+	/*added for none photo*/
 	border-radius: 0;
-	color: white;
-	max-height: 150px;
-	max-width: 150px;
+	border-top-right-radius: 50px;
+	border: 3px solid var(--financegreenn);
+	border-bottom: 3px solid var(--techgreenn);
+}
+html .project-card .card-body{
+	text-align: left;
+	padding: .5em 1em;
+	padding-bottom: 1em;
+	margin: 0;
+	height: 125px;
+	max-height: 225px;
+	resize: vertical;
 	background-color: var(--grayn);
+	display: block;
+	overflow: auto;
+	color: white;
+	/*added for none photo*/
+	border-radius: 0;
+/*	border-bottom-left-radius: 50px;*/
+	border: 3px solid var(--financegreenn);
+	border-top: none;
+}
+html .project-card .card-body > .row label {
+	font-size: 20px;
+	color: var(--orangen);
 }
 
 /*award-cards*/
@@ -268,66 +307,79 @@ html .award-card{
 	color: white;
 	border: 3px solid var(--yellown);
 	padding: 0;
-	margin: 10px 5px;
+	margin: 15px 5px;
 /*	display: inline-flex;*/
 	text-align: center;
 }
 html .award-card .card-img {
-/*	background-color: red;*/
 	border: 3px solid var(--yellown);
 	border-right: none;
-/*	background-color: var(--grayn);*/
 }
 html .award-card .card-info{
 	text-align: left;
-	width: 100%;
 	min-height: 100px;
-	background-color: var(--cyann);
+	background-color: var(--redn);
 	display: block;
 	overflow: hidden;
 	color: white;
-	width: 100%;
 	padding-bottom: 10px;
 }
-html .award-card .card-head{
-	display: block;
+html .award-card .card-info > .row{
+	padding: .15em 1em;
+}
+html .award-card .card-info > .row p{
+	padding-top: 3px;
+}
+html .award-card .card-info > .row label{
+	font-size: 20px;
+	color: black;
+	padding: 0;
+	margin: 0;
+}
+html .award-card .card-info > .card-head{
 	background-color: var(--steelgraylt);
 	color: white;
 	padding: .4em 1em;
-}
-html .award-card .card-info h6 {
-	color:black;
-	padding-top: .15em;
+	padding-bottom: 0;
 }
 html .award-card .card-image img{
 /*	margin-left: -15px;*/
-	margin: 5px 0;
+	margin: 10px 0;
 	border-radius: 0;
 	color: white;
 	min-height: 100px;
 	max-height: 100px;
-/*	max-width: 150px;*/
-/*	background-color: var(--grayn);*/
 }
 
 /*contact-cards*/
 html .contact-card {
 	margin: 15px 5px;
+	border-radius: 0;	
+	border-bottom-left-radius: 50px;
+	border-top-right-radius: 50px;
 }
 html .contact-card .card-body{
 	overflow: hidden;
 	color: white;
-	padding: .5em 1.5em;
+	padding: 0 1.5em;
+	padding-bottom: 10px;
 	border-radius: 0;	
 	border-bottom-left-radius: 50px;
 	border: 3px solid var(--techgreenn);
 	border-top: none;	
 	background-color: var(--grayn);
 }
-html .contact-card .card-body > .row > *:first-child{
+html .contact-card .card-body > .row{	
+	padding: .15em 0;
+}
+html .contact-card .card-body > .row p{
+	padding-top: 3px;
+}
+html .contact-card .card-body > .row label{	
+	font-size: 18px;
 	color: var(--orangen);
-	padding-left: 1em;
-	padding-top: .15em;
+	padding: 0;
+	margin: 0;
 }
 html .contact-card .card-head{
 	border-radius: 0;
@@ -342,21 +394,33 @@ html .contact-card .card-head{
 /*calendar-card*/
 html .calendar-card {
 	margin: 15px 5px;
+	border-radius: 0;	
+	border-bottom-left-radius: 50px;
+	border-top-right-radius: 50px;
 }
 html .calendar-card .card-body{
 	overflow: hidden;
 	color: white;
-	padding: .5em 1.5em;
+	padding: 0;
+	padding-left: 2em;
+	padding-bottom: 10px;
 	border-radius: 0;	
 	border-bottom-left-radius: 50px;
 	border: 3px solid var(--grapen);
 	border-top: none;	
 	background-color: var(--grayn);
 }
-html .calendar-card .card-body > .row > *:first-child{
+html .calendar-card .card-body > .row{	
+	padding: .15em 0;
+}
+html .calendar-card .card-body > .row p{
+	padding-top: 3px;
+}
+html .calendar-card .card-body > .row label{
+	font-size: 18px;	
 	color: var(--yellown);
-	padding-left: 1em;
-	padding-top: .15em;
+	padding: 0;
+	margin: 0;
 }
 html .calendar-card .card-head{
 	border-radius: 0;
@@ -366,6 +430,7 @@ html .calendar-card .card-head{
 	background-color: white;
 	color: black;
 	padding: .1em 1em;
+	padding-right: 2em;
 }
 
 
@@ -382,6 +447,8 @@ html .calendar-card .card-head{
 	border-radius: 50px;
 	border-top-left-radius: 0;
 	border-bottom-right-radius: 0;
+/*	border-top-right-radius: 50px;*/
+	
 }
 .text-shadow{	
 	text-shadow: 3px 0.5px 4px var(--orangen);
@@ -409,6 +476,9 @@ html .calendar-card .card-head{
 	width: 0;
 	display: inline;
 	margin: 1px 5px;
+}
+.box-shadow{
+	box-shadow: 3px 4px 8px 2px rgba(0,0,0,0.4);
 }
 /*color classes*/
 .color-b{		color: var(--blackn);}
