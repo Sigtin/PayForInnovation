@@ -64,12 +64,12 @@
 .nav-links{
 /*	padding: 7px 10px 3px 10px;*/
 	font-weight: 600;
-	padding: 4px 5px 0 5px;
+	padding: 4px 10px 0 10px;
 	color: var(--warmgraymd);
 	overflow: hidden;
 }
 #navbarCollapse{
-	padding: 0 10px;
+	padding: 0;
 }
 .nav-item:hover{
 	background-color: var(--yellown); 
@@ -532,3 +532,184 @@ html .calendar-card .card-head{
 
 
 
+/*Modefied version of the calender api's css*/
+.mini-cal{
+/*    font-family: Verdana, sans-serif;*/
+/*    padding-bottom: 1.2em;*/
+    background: var(--blackn);
+    color: #fff;
+}
+
+#calTitle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.12em;
+    text-align: center;
+	font-weight: 500;
+/*    padding: 0.4em 1em;*/
+/*    padding-top: 0.8em;*/
+	background-color: var(--grapen);
+}
+
+#calTitle button{
+    outline: none;
+    display: block;
+    border: none;
+	color: white;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    line-height: 65px;
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#calTitle button svg{
+    width: 30px;
+    height: 30px;
+}
+
+#calTitle button:hover{
+    background: rgba(255,255,255,0.2);
+}
+
+#calThead, #calTbody{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.2em 0.1em;
+}
+
+#calThead{
+    color: black;
+	background-color: white;
+    padding-top: 0.4em;
+    align-items: center;
+    text-align: center;
+    font-size: 0.88em;
+	font-weight: 900;
+}
+
+#calThead > div, #calTbody .a-date{
+    box-sizing: border-box;
+    flex: 1;
+    min-width: calc(100% / 7);
+    max-width: calc(100% / 7);
+    width: calc(100% / 7);
+    text-align: center;
+    padding: 0;
+}
+
+#calThead > div{
+    font-size: 1.1em;
+    padding: 0.2em 0.2em;
+}
+
+#calTbody{
+    color: white;
+}
+
+#calTbody .a-date > span{
+    display: block;
+    font-size: 1em;
+    margin-top: -0.5em;
+}
+
+#calTbody .a-date{
+    cursor: default;
+    padding: 0;
+    position: relative;
+    background-color: transparent;
+    color: inherit;
+    padding: 1em;
+    border: 0.1em solid transparent;
+    outline-color: var(--yellown);
+    font-size: 0.9em;	
+	border-top-right-radius: 15px;
+}
+
+#calTbody .a-date.blurred{
+    opacity: 0.3;
+    pointer-events: none;
+	border-top-right-radius: 0;
+}
+#calTbody .a-date.event{
+	background-color: var(--yellown);
+	color: black;
+/*	border: 1px solid black;*/
+	border-top-right-radius: 0;
+}
+/*
+#calTbody .a-date.event:before{
+    content: '';
+    position: absolute;
+    top: -0.1em;
+    right: 0;
+    left: 0;
+    margin: auto;
+    background-color: #fffc23;
+    width: 0.3em;
+    height: 0.3em;
+    border-radius: 50%;
+}
+*/
+
+#calTbody .a-date.current{
+	border-radius: 0;
+    border-color: white;
+/*
+    outline: none;
+    outline: 0;
+*/
+}
+
+#calTbody .a-date.current.event{
+    background-color: purple;
+    color: #000;
+}
+
+#calTbody .a-date:focus,
+#calTbody .a-date:active{
+	border: 1px solid black;
+	border-radius: 0;
+/*	border-top-right-radius: 15px;*/
+	background-color: var(--orangen);
+}
+
+#calTFooter{
+    display: flex;
+    justify-content: space-between;
+	background-color: white;
+	color: black;
+    align-items: center;
+    font-size: 1.1em;
+    padding: 0;
+/*    margin-bottom: 0.5em 0;*/
+}
+
+#calTFooter #calLink{
+    font-size: 0.8em;
+    display: inline-block;
+    padding: 0.6em 0.8em;
+    flex-shrink: 0;
+    text-decoration: none;
+/*    color: #fffc23;*/
+}
+
+#calTFooter #calLink:hover{
+/*    background-color: var(--grapen);*/
+	text-decoration: solid underline;
+/*    background: rgba(255,255,255,0.2);*/
+}
+
+#calTFooter #eventTitle{
+	font-weight: 700;
+    margin: 0;
+    margin-right: 0.2em;
+	margin-left: 0.5em;
+    font-size: 0.95em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}

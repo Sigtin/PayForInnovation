@@ -1,59 +1,93 @@
 {
 	"calendar-info":[
 		{
-			"date": "May 15",
-			"month": "May",
-			"day": 15,
-			"time": "11 AM",
+			"date": 1521078102000,
+			"year": "2018",
+			"month": "March",
+			"day": 14,
+			"time": 11,
+			"isAM": true,
 			"location": "Lassonde Center",
-			"event": "Startup Speed Interview Session"
+			"title": "Startup Speed Interview Session"
+		},
+		{
+			"date": 1521078102000,
+			"year": "2018",
+			"month": "March",
+			"day": 14,
+			"time": 4,
+			"isAM": false,
+			"location": "v2",
+			"title": "Startup2"
 		},
 		{
 			"date": "May 15",
+			"year": "2018",
 			"month": "May",
 			"day": 15,
-			"time": "12 PM",
+			"time": 11,
+			"isAM": true,
 			"location": "Lassonde Center",
-			"event": "Hours with Experts: Legal Support"
+			"title": "Startup Speed Interview Session"
+		},
+		{
+			"date": "May 15",
+			"year": "2018",
+			"month": "May",
+			"day": 15,
+			"time": 12,
+			"isAM": false,
+			"location": "Lassonde Center",
+			"title": "Hours with Experts: Legal Support"
 		},
 		{
 			"date": "May 16",
+			"year": "2018",
 			"month": "May",
 			"day": 16,
-			"time": "12 PM",
+			"time": 12,
+			"isAM": false,
 			"location": "Lassonde Center",
-			"event": "Workshops: Financial Models"
+			"title": "Workshops: Financial Models"
 		},
 		{
 			"date": "May 22",
+			"year": "2018",
 			"month": "May",
 			"day": 22,
-			"time": "12 PM",
+			"time": 12,
+			"isAM": false,
 			"location": "Lassonde Center",
-			"event": "Hours with Experts: Accounting"
+			"title": "Hours with Experts: Accounting"
 		},
 		{
 			"date": "May 23",
+			"year": "2018",
 			"month": "May",
 			"day": 23,
-			"time": "7 PM",
+			"time": 7,
+			"isAM": false,
 			"location": "Neumont Innovation Center",
-			"event": "Innovation Center Update"
+			"title": "Innovation Center Update"
 		},
 		{
 			"date": "May 25",
+			"year": "2018",
 			"month": "May",
 			"day": 25,
-			"time": "7 PM",
+			"time": 7,
+			"isAM": false,
 			"location": "Neumont Innovation Center",
-			"event": "Tiger Fish Tank"
+			"title": "Tiger Fish Tank"
 		},
 		{
 			"date": "May 31",
+			"year": "2018",
 			"month": "May",
 			"day": 31,
-			"time": "7 PM",
+			"time": 7,
+			"isAM": false,
 			"location": "Neumont Innovation Center",
-			"event": "Get Seeded Application Process"}
+			"title": "Get Seeded Application Process"}
 	]
 }
