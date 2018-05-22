@@ -1,7 +1,7 @@
 let long_months = ["January", "February", "March", "April", "May", "June", "July","August", "September", "October", "November", "December"];
 let long_days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
-function fillhead(){
+let fillhead = () =>{
 	let el = "";
 	el+='<meta name="viewport" content="width=device-width, initial-scale=1">';//'<meta name="viewport" content="width=device-width">';
 	//'<meta name="viewport" content="width=device-width, initial-scale=1">'
@@ -18,16 +18,16 @@ fillhead();
 //Foot
 let requestFoot = new XMLHttpRequest();
 loadFoot();
-function loadFoot() {
+let loadFoot = () =>{
 	requestFoot.open('GET', 'json/foot.json');
 	requestFoot.onload = loadCompleteFoot;
   	requestFoot.send();	
 }
-function loadCompleteFoot(evt) {
+let loadCompleteFoot = (evt) =>{
   	let dataX = JSON.parse(requestFoot.responseText);
 	buildFoot(dataX["foot-info"]);
 }
-function buildFoot(jsondata){
+let buildFoot = (jsondata) =>{
 	let el = "<div>";
 	let x;
 	for(let i=0; i<jsondata.length; i++){
@@ -42,12 +42,12 @@ function buildFoot(jsondata){
 //Nav
 let requestNav = new XMLHttpRequest();
 loadNav();
-function loadNav() {
+let loadNav = () =>{
 	requestNav.open('GET', 'json/nav.json');
 	requestNav.onload = loadCompleteNav;
   	requestNav.send();
 } 
-function loadCompleteNav(evt) {
+let loadCompleteNav = (evt) =>{
   	let dataX = JSON.parse(requestNav.responseText);
 	buildNav(dataX["nav-info"]);
 	
@@ -56,7 +56,7 @@ function loadCompleteNav(evt) {
 	});
 	resized();
 }
-function buildNav(jsondata){
+let buildNav = (jsondata) =>{
 	let el = "";	
 	let elfull = "";	
 	let elr = "";//opening
@@ -131,7 +131,7 @@ function buildNav(jsondata){
 	conHol.innerHTML=elfull;
 	setActive();
 }
-function setActive(){	
+let setActive = () =>{	
 	let path = window.location.pathname;
 	let page = path.split("/").pop();
 	console.log(page);
@@ -145,7 +145,7 @@ function setActive(){
 	}
 }
 
-function resized(){
+let resized = () =>{
 	if(window.innerWidth<768){ showtitles();}
 	else{ hidetitles();}
 	
@@ -175,7 +175,7 @@ function showtitles(){
     $('[data-toggle="tooltip"]').tooltip('dispose');   
 	});
 }
-function hidetitles(){
+let hidetitles = () =>{
 	let iconed = document.getElementsByClassName("sidetitle");
 	let i;
 	for(i=0; i<iconed.length; i++){
@@ -189,7 +189,7 @@ function hidetitles(){
 	});
 }
 
-function buildElementsContact(jsondata){
+let buildElementsContact = (jsondata) =>{
 	let el = "";
 	let x;
 	for(let i=0; i<jsondata.length; i++){
@@ -219,7 +219,7 @@ function buildElementsContact(jsondata){
 	let contentHolder = document.getElementById("contacts-area");
 	contentHolder.innerHTML=el;
 }
-function buildElementsProject(jsondata){
+let buildElementsProject = (jsondata) =>{
 	let el = "";
 	let x;
 	for(let i=0; i<jsondata.length; i++){
@@ -242,7 +242,7 @@ function buildElementsProject(jsondata){
 	//<div class="project-card"><div class="card-info"><div class="row card-head"><h4>'+x.name+'</h4></div><div class="row card-body"><div class="col-md-2"><h6>Project Details:</h6></div><div class="col-md-10"><p>'+x.details+'</p></div></div></div></div>
 //}
 }
-function buildElementsAward(jsondata){
+let buildElementsAward = (jsondata) =>{
 	let el = "";
 	let x;
 	for(let i=0; i<jsondata.length; i++){
@@ -268,7 +268,7 @@ function buildElementsAward(jsondata){
 //	el +='<div class="contact-card"><div class="card-head"><h3>'+x.name+'</h3></div></div>';
 //}
 }
-function buildElementsCalendar(jsondata){
+let buildElementsCalendar = (jsondata) =>{
 		console.log("Calendar build invoked:", calendarDay);
 	let el = "";
 	let x;
@@ -334,7 +334,7 @@ loadDataContact();
 loadDataProject();
 loadDataAward();
 loadDataCalendar();
-function loadDataContact() {
+let loadDataContact = () =>{
 	if(document.getElementById("contacts-area")){
 		requestContact = new XMLHttpRequest();
 		requestContact.open('GET', 'json/contacts.json');
@@ -342,7 +342,7 @@ function loadDataContact() {
 	  	requestContact.send();
 	}
 }
-function loadDataProject() {
+let loadDataProject = () =>{
 	if(document.getElementById("projects-area")){
 		requestProject = new XMLHttpRequest();
 		requestProject.open('GET', 'json/projects.json');
@@ -350,7 +350,7 @@ function loadDataProject() {
   		requestProject.send();
 	}
 }
-function loadDataAward() {
+let loadDataAward = () =>{
 	if(document.getElementById("awards-area")){
 		requestAward = new XMLHttpRequest();
 		requestAward.open('GET', 'json/awards.json');	
@@ -358,7 +358,7 @@ function loadDataAward() {
   		requestAward.send();
 	}
 }
-function loadDataCalendar() {
+let loadDataCalendar = () =>{
 	if(document.getElementById("calendars-area")){
 		requestCalendar = new XMLHttpRequest();
 		requestCalendar.open('GET', 'json/calendars.json');	
@@ -366,26 +366,26 @@ function loadDataCalendar() {
   		requestCalendar.send();
 	}	
 } 
-function loadDataCalendarDay(dayid) {
+let loadDataCalendarDay = (dayid) =>{
 	let dataX = JSON.parse(requestCalendar.responseText);
 	calendarDay = dayid;
 	console.log("dayid: ", dayid);
 	buildElementsCalendar(dataX["calendar-info"]);
 } 
 
-function loadCompleteContact(evt) {
+let loadCompleteContact = (evt) => {
   	let dataX = JSON.parse(requestContact.responseText);
 	buildElementsContact(dataX["contact-info"]);
 }
-function loadCompleteProject(evt) {
+let loadCompleteProject = (evt) => {
 	let dataX = JSON.parse(requestProject.responseText);
 	buildElementsProject(dataX["project-info"]);
 }
-function loadCompleteAward(evt) {
+let loadCompleteAward = (evt) => {
   	let dataX = JSON.parse(requestAward.responseText);
 	buildElementsAward(dataX["award-info"]);
 }
-function loadCompleteCalendar(evt) {
+let loadCompleteCalendar = (evt) => {
 	let dataX = JSON.parse(requestCalendar.responseText);
 	buildElementsCalendar(dataX["calendar-info"]);
 	$(document).ready(function(){
@@ -402,7 +402,7 @@ function loadCompleteCalendar(evt) {
 	
 (function( $ ) {
 	console.log("$ executed");
-	var calenderTpl = '<div id="calTitle">'
+	let calenderTpl = '<div id="calTitle">'
 	+'<button class="month-mover prev">'
 		+'<svg fill="#FFFFFF" height="30" viewBox="0 0 24 24" width="30" xmlns="http://www.w3.org/2000/svg">'
 			+'<path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>'
@@ -472,7 +472,7 @@ function loadCompleteCalendar(evt) {
 		        showEvent($(this).data('event'));
 		});
 
-		function populateCalendar(month, year) {
+		let populateCalendar = (month, year) => {
 			tbody.html("");
 			cal_title.text(long_months[month] + " " + year);
 
@@ -516,7 +516,7 @@ function loadCompleteCalendar(evt) {
      		}
  		}
 
- 		function last_prev_month_days(day){
+ 		let last_prev_month_days = (day) => {
  			if(cur_month > 0){
      			let month_idx = cur_month - 1;
      			let year_idx = cur_year;
@@ -538,7 +538,7 @@ function loadCompleteCalendar(evt) {
         	return last_days;
  		}
 
-		function date_tpl(blurred, date, is_today, event){
+		let date_tpl = (blurred, date, is_today, event) => {
 		let tpl = "<div class='a-date blurred'><span>"+date+"</span></div>";
 			if(!blurred){
 		        let cls = is_today ? "current " : "";
@@ -553,7 +553,7 @@ function loadCompleteCalendar(evt) {
 			return tpl;
 		}
 
-		function showEvent(event){
+		let showEvent = (event) => {
 			if(event && event !== null && event !== undefined){
 				event_title.text(event.title+" ...");
 				console.log("event:", event);
@@ -566,27 +566,27 @@ function loadCompleteCalendar(evt) {
 			}
 		}
 
-		function viewNextMonth(){
+		let viewNextMonth = () => {
 			let next_month = cur_month < 11 ? cur_month + 1 : 0;
 			let next_year = cur_month < 11 ? cur_year : cur_year + 1;
 
 			populateCalendar(next_month, next_year);
 		}
 
-		function viewPrevMonth(){
+		let viewPrevMonth = () => {
 			let prev_month = cur_month > 0 ? cur_month - 1 : 11;
 			let prev_year = cur_month > 0 ? cur_year : cur_year - 1;
 			
 			populateCalendar(prev_month, prev_year);
 		}
 
-		function areSameDate(d1, d2) {
+		let areSameDate = (d1, d2) => {
 			return d1.getFullYear() == d2.getFullYear()
 		        && d1.getMonth() == d2.getMonth()
 		        && d1.getDate() == d2.getDate();
 		}
 
-		function getMonthDays(month, year) {
+		let getMonthDays = (month, year) => {
 		     let date = new Date(year, month, 1);
 		     let days = [];
 		     while (date.getMonth() === month) {

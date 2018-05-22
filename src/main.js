@@ -2,7 +2,7 @@ const name = 'World';
 
 console.log(`Hello, ${name}!`);
 
-function buildElementsC(jsondata){
+let buildElementsC = (jsondata) =>{
 let el = "";
 let x;
 for(let i=0; i<jsondata.length; i++){
@@ -19,7 +19,8 @@ for(let i=0; i<jsondata.length; i++){
 	let contentHolder = document.getElementById("contacts-area");
 contentHolder.innerHTML=el;
 }
-function buildElementsP(jsondata){
+
+let buildElementsP = (jsondata) =>{
 let el = "";
 let x;
 //for(var i=0; i<1; i++){
@@ -35,7 +36,8 @@ let	contentHolder = document.getElementById("projects-area");
 	
 contentHolder.innerHTML=el;
 }
-function buildElementsA(jsondata){
+
+let buildElementsA = (jsondata) =>{
 let el = "";
 let x;
 //for(var i=0; i<jsondata.length; i++){
@@ -49,7 +51,8 @@ let x;
 	let contentHolder = document.getElementById("awards-area");
 contentHolder.innerHTML=el;
 }
-function buildElementsD(jsondata){
+
+let buildElementsD = (jsondata) => {
 let el = "";
 let x;
 for(let i=0; i<jsondata.length; i++){
@@ -72,47 +75,49 @@ loadData1();
 loadData2();
 loadData3();
 loadData4();
-function loadData1() {
+
+let loadData1=()=>{
 	if(document.getElementById("contacts-area")){
 		request1.open('GET', 'json/contacts.json');
 	  	request1.onload = loadComplete1;
 	  	request1.send();
 	}
 }
-function loadData2() {
+let loadData2 =()=>{
 	if(document.getElementById("projects-area")){
 		request2.open('GET', 'json/projects.json');
   		request2.onload = loadComplete2;
   		request2.send();
 	}
 }
-function loadData3() {
+let loadData3 = () => {
 	if(document.getElementById("awards-area")){
 		request3.open('GET', 'json/awards.json');	
   		request3.onload = loadComplete3;
   		request3.send();
 	}
 }
-function loadData4() {
+let loadData4 = () => {
 	if(document.getElementById("calendars-area")){
 		request4.open('GET', 'json/calendars.json');	
   		request4.onload = loadComplete4;
   		request4.send();
 	}
 } 
-function loadComplete1(evt) {
+let loadComplete1 = (evt) => {
   	dataX = JSON.parse(request1.responseText);
 	buildElementsC(dataX["contact-info"]);
 }
-function loadComplete2(evt) {
+let loadComplete2 = (evt) => {
 	dataX = JSON.parse(request2.responseText);
 	buildElementsP(dataX["project-info"]);
 }
-function loadComplete3(evt) {
+
+let loadComplete3 = (evt) => {
   	dataX = JSON.parse(request3.responseText);
 	buildElementsA(dataX["award-info"]);
 }
-function loadComplete4(evt) {
+let loadComplete4 = (evt) => {
 	dataX = JSON.parse(request4.responseText);
 	buildElementsD(dataX["calendar-info"]);
 }
@@ -121,16 +126,16 @@ function loadComplete4(evt) {
 //Nav
 let requestNav = new XMLHttpRequest();
 loadNav();
-function loadNav() {
+let loadNav = () => {
 	requestNav.open('GET', 'json/nav.json');
 	requestNav.onload = loadCompleteNav;
   	requestNav.send();	
 } 
-function loadCompleteNav(evt) {
+let loadCompleteNav = (evt) => {
   	dataX = JSON.parse(requestNav.responseText);
 	buildNav(dataX["nav-info"]);
 }
-function buildNav(jsondata){
+let buildNav = (jsondata) =>{
 	let el = "";
 	let x;
 	//brand
@@ -175,7 +180,7 @@ function buildNav(jsondata){
 	conHol.innerHTML=el;
 	setActive();
 }
-function setActive(){	
+let setActive = () =>{	
 	let path = window.location.pathname;
 	let page = path.split("/").pop();
 	console.log(page);
@@ -200,13 +205,13 @@ function setActive(){
 //Foot
 let requestFoot = new XMLHttpRequest();
 loadFoot();
-function loadFoot() {
+let loadFoot = () => {
 	console.log("made to foot");
 	requestFoot.open('GET', 'json/foot.json');
 	requestFoot.onload = loadCompleteFoot;
   	requestFoot.send();	
 }
-function loadCompleteFoot(evt) {
+let loadCompleteFoot = (evt) => {
   dataX = JSON.parse(requestFoot.responseText);
 	jsondata=dataX["foot-info"];//buildFoot(dataX["foot-info"]);
 	let el = "<div>";
