@@ -434,7 +434,6 @@ html .calendar-card .card-head{
 	padding-right: 2em;
 }
 
-
 /*Add-on classes*/
 .align-r{
 	text-align: right;
@@ -612,7 +611,9 @@ html .calendar-card .card-head{
 #calTbody .a-date > span{
     display: block;
     font-size: 1em;
-    margin-top: -0.5em;
+    margin: -.5em;
+	text-align: center;
+	padding: 0;
 }
 
 #calTbody .a-date{
@@ -636,7 +637,7 @@ html .calendar-card .card-head{
 #calTbody .a-date.event{
 	background-color: var(--yellown);
 	color: black;
-/*	border: 1px solid black;*/
+	border: 1px solid black;
 	border-top-right-radius: 0;
 }
 /*

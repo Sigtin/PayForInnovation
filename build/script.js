@@ -1,3 +1,6 @@
+var long_months = ["January", "February", "March", "April", "May", "June", "July","August", "September", "October", "November", "December"];
+var long_days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
 function fillhead(){
 	var el = "";
 	el+='<meta name="viewport" content="width=device-width, initial-scale=1">';//'<meta name="viewport" content="width=device-width">';
@@ -21,7 +24,7 @@ function loadFoot() {
   	requestFoot.send();	
 }
 function loadCompleteFoot(evt) {
-  	dataX = JSON.parse(requestFoot.responseText);
+  	var dataX = JSON.parse(requestFoot.responseText);
 	buildFoot(dataX["foot-info"]);
 }
 function buildFoot(jsondata){
@@ -45,7 +48,7 @@ function loadNav() {
   	requestNav.send();
 } 
 function loadCompleteNav(evt) {
-  	dataX = JSON.parse(requestNav.responseText);
+  	var dataX = JSON.parse(requestNav.responseText);
 	buildNav(dataX["nav-info"]);
 	
 	$(document).ready(function(){
@@ -145,6 +148,22 @@ function setActive(){
 function resized(){
 	if(window.innerWidth<768){ showtitles();}
 	else{ hidetitles();}
+	
+	if(document.getElementById('calendar-minimal-size')){		
+		var doc = document.getElementById('calendar-minimal-size');
+		if(window.innerWidth<577){// 518
+			console.log("window min");
+			doc.style.padding = 0;
+			doc.style.marginLeft = "-15px";
+			doc.style.marginRight = "-15px";		
+		}
+		else{		
+			doc.style.padding = 0;
+			doc.style.marginLeft = "10px";
+			doc.style.marginRight = "10px";
+		}
+	}
+	
 }
 function showtitles(){
 	var iconed = document.getElementsByClassName("sidetitle");
@@ -250,50 +269,55 @@ function buildElementsAward(jsondata){
 //}
 }
 function buildElementsCalendar(jsondata){
-	
 		console.log("Calendar build invoked:", calendarDay);
 	var el = "";
 	var x;
 	if(calendarDay=="emptyday"){	}
-	else if(calendarDay!="-1"){
-		console.log("day:", calendarDay);
-		var y;
-		var t=0;
-		var jsondata2 = [];
-		for(var i=0; i<jsondata.length; i++){
-			y=jsondata[i];
-			if((y.year+y.month+y.day)==calendarDay){
-				jsondata2[t] = y;
-				t +=1;
+	else {
+//		if(calendarDay.charAt(0)=="M"){
+//			console.log("month:", calendarDay);
+//			var y;
+//			var t=0;
+//			var jsondata2 = [];
+//			for(var i=0; i<jsondata.length; i++){
+//				y=jsondata[i];
+//				if('M'+(y.year+y.month)==calendarDay){
+//					jsondata2[t] = y;
+//					t +=1;
+//				}
+//			}
+//			jsondata = jsondata2;
+//		}
+		if(calendarDay!="all"){
+			console.log("day:", calendarDay);
+			var y;
+			var t=0;
+			var jsondata2 = [];
+			for(var i=0; i<jsondata.length; i++){
+				y=jsondata[i];
+				if((y.year+y.month+y.day)==calendarDay){
+					jsondata2[t] = y;
+					t +=1;
+				}
 			}
+			jsondata = jsondata2;
 		}
-		for(var i=0; i<jsondata2.length; i++){
-			x=jsondata2[i];
-			el +='<div class="calendar-card box-shadow '+x.year+x.month+x.day+'" id="'+x.year+x.month+x.day+x.time+x.isAM+'">'
-			+'<div class="card-head"><h3>'+x.title+'</h3></div>'
-			+'<div class="card-body"><div class="row">'
-			+'<div class="col-sm-2"><label>Date:</label></div>'
-			+'<div class="col-sm-10"><p>'+x.date+', '+x.time+'</p></div>'
-			+'</div><div class="row">'
-			+'<div class="col-sm-2"><label>Location:</label></div>'
-			+'<div class="col-sm-10"><p>'+x.location+'</p></div>'
-			+'</div></div></div>';
-		}		
-	}
-	else{
+		
 		for(var i=0; i<jsondata.length; i++){
 			x=jsondata[i];
-			el +='<div class="calendar-card box-shadow '+x.year+x.month+x.day+'" id="'+x.year+x.month+x.day+x.time+x.isAM+'">'
+			var time = x.time+' '+(x.isAM?'AM': 'PM');
+			el +='<div class="calendar-card box-shadow '+x.year+x.month+x.day+'">'// id="'+x.year+x.month+x.day+x.time+x.isAM+'"
 				+'<div class="card-head"><h3>'+x.title+'</h3></div>'
 				+'<div class="card-body"><div class="row">'
 				+'<div class="col-sm-2"><label>Date:</label></div>'
-				+'<div class="col-sm-10"><p>'+x.date+', '+x.time+'</p></div>'
+				+'<div class="col-sm-10"><p>'+long_months[x.month-1]+' '+x.day+', '+time+'</p></div>'
 				+'</div><div class="row">'
 				+'<div class="col-sm-2"><label>Location:</label></div>'
 				+'<div class="col-sm-10"><p>'+x.location+'</p></div>'
 				+'</div></div></div>';
 		}
 	}
+	
 	var contentHolder = document.getElementById("calendars-area");
 	contentHolder.innerHTML=el;
 }
@@ -343,36 +367,39 @@ function loadDataCalendar() {
 	}	
 } 
 function loadDataCalendarDay(dayid) {
-		calendarDay = dayid;
+	var dataX = JSON.parse(requestCalendar.responseText);
+	calendarDay = dayid;
 	console.log("dayid: ", dayid);
 	buildElementsCalendar(dataX["calendar-info"]);
 } 
 
 function loadCompleteContact(evt) {
-  	dataX = JSON.parse(requestContact.responseText);
+  	var dataX = JSON.parse(requestContact.responseText);
 	buildElementsContact(dataX["contact-info"]);
 }
 function loadCompleteProject(evt) {
-	dataX = JSON.parse(requestProject.responseText);
+	var dataX = JSON.parse(requestProject.responseText);
 	buildElementsProject(dataX["project-info"]);
 }
 function loadCompleteAward(evt) {
-  	dataX = JSON.parse(requestAward.responseText);
+  	var dataX = JSON.parse(requestAward.responseText);
 	buildElementsAward(dataX["award-info"]);
 }
 function loadCompleteCalendar(evt) {
-	dataX = JSON.parse(requestCalendar.responseText);
+	var dataX = JSON.parse(requestCalendar.responseText);
 	buildElementsCalendar(dataX["calendar-info"]);
 	$(document).ready(function(){
 			$("#calendar-minimal-size").MEC({
 				events: dataX["calendar-info"]
 			});
 		});
-
+//}
 
 //Calendar visual code
 //body: data-spy="scroll"
 //set div id = event.id, href="#section1"
+//function cal(){
+	
 (function( $ ) {
 	console.log("$ executed");
 	var calenderTpl = '<div id="calTitle">'
@@ -399,9 +426,8 @@ function loadCompleteCalendar(evt) {
 	+'</div>'
 	+'<div id="calTFooter">'
 		+'<h3 id="eventTitle">No events today.</h3>'
-		+'<a href="javascript:void(0);" id="calLink">ALL EVENTS</a></div>';
-//	var short_months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug", "Sep", "Oct", "Nov", "Dec"];
-	var long_months = ["January", "February", "March", "April", "May", "June", "July","August", "September", "October", "November", "December"];
+		+'<a href="#calendars-area" id="calLink" onclick="loadDataCalendarDay(\'all\')">ALL EVENTS</a></div>';// onclick="loadDataCalendarDay(\'all\')"
+	
 	var today = new Date();
 	var cur_month = today.getMonth();
 	var cur_year = today.getFullYear();
@@ -422,11 +448,11 @@ function loadCompleteCalendar(evt) {
         var event_title = mini_cal.find("#eventTitle");
 		var events_link = mini_cal.find("#calLink");
 
-		cal_title.text("Feb 2018");
+		cal_title.text(long_months[cur_month]+" "+cur_year);
         event_title.text("No events today.");
-		events_link.text("ALL EVENTS");
-		events_link.attr("href", '#calendars-area');
-		events_link.attr("onclick", "loadDataCalendarDay('-1')");
+//		events_link.text("ALL EVENTS");
+//		events_link.attr("href", '#calendars-area');
+//		events_link.attr("onclick", "loadDataCalendarDay('M"+(cur_year+cur_month)+"')");
 
 		if(!settings.calendar_link.length && !settings.events.length)
 			cal_footer.css("display", "none");
@@ -455,17 +481,20 @@ function loadCompleteCalendar(evt) {
 
 			var ldate = new Date(year, month);
 			var dt = new Date(ldate);
-
+			
 			if(ldate.getDate() === 1 && dt.getDay() != 1)
 					tbody.append(last_prev_month_days(dt.getDay()));
 
 			while (ldate.getMonth() === month) {
      			dt = new Date(ldate);
-
      			var isToday = areSameDate(ldate, new Date());
      			var event = null;
      			var event_index = settings.events.findIndex(function(ev) {
-		     		return areSameDate(dt, new Date(ev.date));
+//			console.log("ev:", ev);
+				var date2 = new Date(ev.year, ev.month-1, ev.day);
+//			console.log("date2:", date2);
+//			console.log("year:", date2.getFullYear);
+		     		return areSameDate(dt, date2);//new Date(ev.date));
 		     	});
 
 		        if(event_index != -1){
@@ -528,22 +557,12 @@ function loadCompleteCalendar(evt) {
 			if(event && event !== null && event !== undefined){
 				event_title.text(event.title+" ...");
 				console.log("event:", event);
-//				events_link.text("VIEW EVENT(S)");
 				var dayid = event.year+event.month+event.day+"";
 				loadDataCalendarDay(dayid);
-//				events_link.attr("href", '#'+event.year+event.month+event.day+event.time+event.isAM);
-//				events_link.attr("onclick", "");
-//				events_link.attr("onclick", 'loadDataCalendarDay("'+event.year+event.month+event.day+'")');
 			}else{
-//				if(event.year === cur_year && event.month === cur_month && event.day === today.getDay)
-//					event_title.text("No events today.");	
-//				else 
-					event_title.text("No events on this day.");
-//				events_link.text("ALL EVENTS");
+				event_title.text("No events on this day.");
 				var dayid = "emptyday";
 				loadDataCalendarDay(dayid);
-//				events_link.attr("href", '#calendars-area');
-//				events_link.attr("onclick", "loadDataCalendarDay('-1')");
 			}
 		}
 
@@ -583,4 +602,4 @@ function loadCompleteCalendar(evt) {
     };
  
 }( jQuery ));
-}
+	}

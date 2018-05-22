@@ -1,29 +1,8 @@
 {
 	"calendar-info":[
 		{
-			"date": 1521078102000,
-			"year": "2018",
-			"month": "March",
-			"day": 14,
-			"time": 11,
-			"isAM": true,
-			"location": "Lassonde Center",
-			"title": "Startup Speed Interview Session"
-		},
-		{
-			"date": 1521078102000,
-			"year": "2018",
-			"month": "March",
-			"day": 14,
-			"time": 4,
-			"isAM": false,
-			"location": "v2",
-			"title": "Startup2"
-		},
-		{
-			"date": "May 15",
-			"year": "2018",
-			"month": "May",
+			"year": 2018,
+			"month": 5,		
 			"day": 15,
 			"time": 11,
 			"isAM": true,
@@ -31,9 +10,8 @@
 			"title": "Startup Speed Interview Session"
 		},
 		{
-			"date": "May 15",
-			"year": "2018",
-			"month": "May",
+			"year": 2018,
+			"month": 5,	
 			"day": 15,
 			"time": 12,
 			"isAM": false,
@@ -41,9 +19,8 @@
 			"title": "Hours with Experts: Legal Support"
 		},
 		{
-			"date": "May 16",
-			"year": "2018",
-			"month": "May",
+			"year": 2018,
+			"month": 5,	
 			"day": 16,
 			"time": 12,
 			"isAM": false,
@@ -51,9 +28,8 @@
 			"title": "Workshops: Financial Models"
 		},
 		{
-			"date": "May 22",
-			"year": "2018",
-			"month": "May",
+			"year": 2018,
+			"month": 5,	
 			"day": 22,
 			"time": 12,
 			"isAM": false,
@@ -61,9 +37,8 @@
 			"title": "Hours with Experts: Accounting"
 		},
 		{
-			"date": "May 23",
-			"year": "2018",
-			"month": "May",
+			"year": 2018,
+			"month": 5,	
 			"day": 23,
 			"time": 7,
 			"isAM": false,
@@ -71,9 +46,8 @@
 			"title": "Innovation Center Update"
 		},
 		{
-			"date": "May 25",
-			"year": "2018",
-			"month": "May",
+			"year": 2018,
+			"month": 5,	
 			"day": 25,
 			"time": 7,
 			"isAM": false,
@@ -81,13 +55,13 @@
 			"title": "Tiger Fish Tank"
 		},
 		{
-			"date": "May 31",
-			"year": "2018",
-			"month": "May",
+			"year": 2018,
+			"month": 5,	
 			"day": 31,
 			"time": 7,
 			"isAM": false,
 			"location": "Neumont Innovation Center",
-			"title": "Get Seeded Application Process"}
+			"title": "Get Seeded Application Process"
+		}
 	]
 }
