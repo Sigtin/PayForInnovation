@@ -1,8 +1,8 @@
-var long_months = ["January", "February", "March", "April", "May", "June", "July","August", "September", "October", "November", "December"];
-var long_days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+let long_months = ["January", "February", "March", "April", "May", "June", "July","August", "September", "October", "November", "December"];
+let long_days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 function fillhead(){
-	var el = "";
+	let el = "";
 	el+='<meta name="viewport" content="width=device-width, initial-scale=1">';//'<meta name="viewport" content="width=device-width">';
 	//'<meta name="viewport" content="width=device-width, initial-scale=1">'
 	el+='<link rel="shortcut icon" href="https://instructure-uploads.s3.amazonaws.com/account_86650/attachments/112327819/favicon32x32-charcoal-100.jpg">';
@@ -16,7 +16,7 @@ function fillhead(){
 fillhead();
 
 //Foot
-var requestFoot = new XMLHttpRequest();
+let requestFoot = new XMLHttpRequest();
 loadFoot();
 function loadFoot() {
 	requestFoot.open('GET', 'json/foot.json');
@@ -24,23 +24,23 @@ function loadFoot() {
   	requestFoot.send();	
 }
 function loadCompleteFoot(evt) {
-  	var dataX = JSON.parse(requestFoot.responseText);
+  	let dataX = JSON.parse(requestFoot.responseText);
 	buildFoot(dataX["foot-info"]);
 }
 function buildFoot(jsondata){
-	var el = "<div>";
-	var x;
-	for(var i=0; i<jsondata.length; i++){
+	let el = "<div>";
+	let x;
+	for(let i=0; i<jsondata.length; i++){
 		x=jsondata[i];
 		el +='<p>'+x.text+'</p>';
 	}	
 	el+="<div>";
-	var conHol = document.getElementById("foot-area");
+	let conHol = document.getElementById("foot-area");
 	conHol.innerHTML=el;
 }
 
 //Nav
-var requestNav = new XMLHttpRequest();
+let requestNav = new XMLHttpRequest();
 loadNav();
 function loadNav() {
 	requestNav.open('GET', 'json/nav.json');
@@ -48,7 +48,7 @@ function loadNav() {
   	requestNav.send();
 } 
 function loadCompleteNav(evt) {
-  	var dataX = JSON.parse(requestNav.responseText);
+  	let dataX = JSON.parse(requestNav.responseText);
 	buildNav(dataX["nav-info"]);
 	
 	$(document).ready(function(){
@@ -57,11 +57,11 @@ function loadCompleteNav(evt) {
 	resized();
 }
 function buildNav(jsondata){
-	var el = "";	
-	var elfull = "";	
-	var elr = "";//opening
+	let el = "";	
+	let elfull = "";	
+	let elr = "";//opening
 //	var right;
-	var x;
+	let x;
 	//brand
 	elfull +='<div class="navbar-brand"></div>';
 	//hamburger
@@ -70,7 +70,7 @@ function buildNav(jsondata){
 	//build
 	elfull+='<div class="collapse navbar-collapse" id="navbarCollapse"><ul class="navbar-nav mr-auto">';
 	
-	for(var i=0; i<jsondata.length; i++){
+	for(let i=0; i<jsondata.length; i++){
 		x=jsondata[i];		
 		el='<li id="'+x.href+'" ';
 		
@@ -94,7 +94,7 @@ function buildNav(jsondata){
 			}
 			el+='</a><div class="dropdown-menu">';
 			
-			var i;
+			let i;
 			for(i=0; i<x.dropdowns.length; i++){
 				el+='<a class="dropdown-item" href="'+x.dropdowns[i].href+'">'+x.dropdowns[i].name+'</a>';
 			}
@@ -127,19 +127,19 @@ function buildNav(jsondata){
 	elr+="";//closure
 	elfull+='</ul>'+elr+'</div>';			  
 			  
-	var conHol = document.getElementById("navbar-n");
+	let conHol = document.getElementById("navbar-n");
 	conHol.innerHTML=elfull;
 	setActive();
 }
 function setActive(){	
-	var path = window.location.pathname;
-	var page = path.split("/").pop();
+	let path = window.location.pathname;
+	let page = path.split("/").pop();
 	console.log(page);
 	if(page=="_applicationsubmitted.html"){
 		page="_application.html";
 	}
 		
-	var temp = document.getElementById(page);
+	let temp = document.getElementById(page);
 	if(temp != null){
 		temp.className +=" active";		
 	}
@@ -150,7 +150,7 @@ function resized(){
 	else{ hidetitles();}
 	
 	if(document.getElementById('calendar-minimal-size')){		
-		var doc = document.getElementById('calendar-minimal-size');
+		let doc = document.getElementById('calendar-minimal-size');
 		if(window.innerWidth<577){// 518
 			console.log("window min");
 			doc.style.padding = 0;
@@ -166,8 +166,8 @@ function resized(){
 	
 }
 function showtitles(){
-	var iconed = document.getElementsByClassName("sidetitle");
-	var i;
+	let iconed = document.getElementsByClassName("sidetitle");
+	let i;
 	for(i=0; i<iconed.length; i++){
 		iconed[i].style.display = "inline";
 	}
@@ -176,8 +176,8 @@ function showtitles(){
 	});
 }
 function hidetitles(){
-	var iconed = document.getElementsByClassName("sidetitle");
-	var i;
+	let iconed = document.getElementsByClassName("sidetitle");
+	let i;
 	for(i=0; i<iconed.length; i++){
 		iconed[i].style.display = "none";
 	}
@@ -190,9 +190,9 @@ function hidetitles(){
 }
 
 function buildElementsContact(jsondata){
-	var el = "";
-	var x;
-	for(var i=0; i<jsondata.length; i++){
+	let el = "";
+	let x;
+	for(let i=0; i<jsondata.length; i++){
 		x=jsondata[i];
 		el +='<div class="contact-card box-shadow">'
 			+'<div class="card-head"><h3>'+x.name+'</h3></div>'
@@ -216,13 +216,13 @@ function buildElementsContact(jsondata){
 			+'<div class="col-md-10"><p>'+x.message+'</p></div>'
 			+'</div></div></div>';
 	}
-	var contentHolder = document.getElementById("contacts-area");
+	let contentHolder = document.getElementById("contacts-area");
 	contentHolder.innerHTML=el;
 }
 function buildElementsProject(jsondata){
-	var el = "";
-	var x;
-	for(var i=0; i<jsondata.length; i++){
+	let el = "";
+	let x;
+	for(let i=0; i<jsondata.length; i++){
 		x=jsondata[i];
 		el +='<div class="project-card box-shadow">'
 			+'<div class="row card-head"><h4>'+x.name+'</h4></div>'
@@ -232,7 +232,7 @@ function buildElementsProject(jsondata){
 			+'<div class="col-lg-11"><p class="text-left">'+x.details+'</p></div>'
 			+'</div></div></div>';
 	}	
-	var	contentHolder = document.getElementById("projects-area");
+	let	contentHolder = document.getElementById("projects-area");
 	contentHolder.innerHTML=el;	
 	
 //for(var i=0; i<1; i++){
@@ -243,9 +243,9 @@ function buildElementsProject(jsondata){
 //}
 }
 function buildElementsAward(jsondata){
-	var el = "";
-	var x;
-	for(var i=0; i<jsondata.length; i++){
+	let el = "";
+	let x;
+	for(let i=0; i<jsondata.length; i++){
 		x=jsondata[i];
 		el +='<div class="row award-card box-shadow">'
 			+'<div class="col-lg-2 card-image">'
@@ -260,7 +260,7 @@ function buildElementsAward(jsondata){
 			+'<div class="col-md-10"><p>'+x.person+'</p></div>'
 			+'</div></div></div>';
 	}	
-	var contentHolder = document.getElementById("awards-area");
+	let contentHolder = document.getElementById("awards-area");
 	contentHolder.innerHTML=el;	
 	
 //for(var i=0; i<jsondata.length; i++){
@@ -270,8 +270,8 @@ function buildElementsAward(jsondata){
 }
 function buildElementsCalendar(jsondata){
 		console.log("Calendar build invoked:", calendarDay);
-	var el = "";
-	var x;
+	let el = "";
+	let x;
 	if(calendarDay=="emptyday"){	}
 	else {
 //		if(calendarDay.charAt(0)=="M"){
@@ -290,10 +290,10 @@ function buildElementsCalendar(jsondata){
 //		}
 		if(calendarDay!="all"){
 			console.log("day:", calendarDay);
-			var y;
-			var t=0;
-			var jsondata2 = [];
-			for(var i=0; i<jsondata.length; i++){
+			let y;
+			let t=0;
+			let jsondata2 = [];
+			for(let i=0; i<jsondata.length; i++){
 				y=jsondata[i];
 				if((y.year+y.month+y.day)==calendarDay){
 					jsondata2[t] = y;
@@ -303,9 +303,9 @@ function buildElementsCalendar(jsondata){
 			jsondata = jsondata2;
 		}
 		
-		for(var i=0; i<jsondata.length; i++){
+		for(let i=0; i<jsondata.length; i++){
 			x=jsondata[i];
-			var time = x.time+' '+(x.isAM?'AM': 'PM');
+			let time = x.time+' '+(x.isAM?'AM': 'PM');
 			el +='<div class="calendar-card box-shadow '+x.year+x.month+x.day+'">'// id="'+x.year+x.month+x.day+x.time+x.isAM+'"
 				+'<div class="card-head"><h3>'+x.title+'</h3></div>'
 				+'<div class="card-body"><div class="row">'
@@ -318,16 +318,16 @@ function buildElementsCalendar(jsondata){
 		}
 	}
 	
-	var contentHolder = document.getElementById("calendars-area");
+	let contentHolder = document.getElementById("calendars-area");
 	contentHolder.innerHTML=el;
 }
 
 //Page content
-var requestContact;	// = new XMLHttpRequest();
-var requestProject;	// = new XMLHttpRequest();
-var requestAward;	// = new XMLHttpRequest();
-var requestCalendar;// = new XMLHttpRequest();
-var calendarDay = 'emptyday';
+let requestContact;	// = new XMLHttpRequest();
+let requestProject;	// = new XMLHttpRequest();
+let requestAward;	// = new XMLHttpRequest();
+let requestCalendar;// = new XMLHttpRequest();
+let calendarDay = 'emptyday';
 //var type="";
 //var contentHolder="";
 loadDataContact();
@@ -367,26 +367,26 @@ function loadDataCalendar() {
 	}	
 } 
 function loadDataCalendarDay(dayid) {
-	var dataX = JSON.parse(requestCalendar.responseText);
+	let dataX = JSON.parse(requestCalendar.responseText);
 	calendarDay = dayid;
 	console.log("dayid: ", dayid);
 	buildElementsCalendar(dataX["calendar-info"]);
 } 
 
 function loadCompleteContact(evt) {
-  	var dataX = JSON.parse(requestContact.responseText);
+  	let dataX = JSON.parse(requestContact.responseText);
 	buildElementsContact(dataX["contact-info"]);
 }
 function loadCompleteProject(evt) {
-	var dataX = JSON.parse(requestProject.responseText);
+	let dataX = JSON.parse(requestProject.responseText);
 	buildElementsProject(dataX["project-info"]);
 }
 function loadCompleteAward(evt) {
-  	var dataX = JSON.parse(requestAward.responseText);
+  	let dataX = JSON.parse(requestAward.responseText);
 	buildElementsAward(dataX["award-info"]);
 }
 function loadCompleteCalendar(evt) {
-	var dataX = JSON.parse(requestCalendar.responseText);
+	let dataX = JSON.parse(requestCalendar.responseText);
 	buildElementsCalendar(dataX["calendar-info"]);
 	$(document).ready(function(){
 			$("#calendar-minimal-size").MEC({
@@ -428,25 +428,25 @@ function loadCompleteCalendar(evt) {
 		+'<h3 id="eventTitle">No events today.</h3>'
 		+'<a href="#calendars-area" id="calLink" onclick="loadDataCalendarDay(\'all\')">ALL EVENTS</a></div>';// onclick="loadDataCalendarDay(\'all\')"
 	
-	var today = new Date();
-	var cur_month = today.getMonth();
-	var cur_year = today.getFullYear();
+	let today = new Date();
+	let cur_month = today.getMonth();
+	let cur_year = today.getFullYear();
 
     $.fn.miniEventCalendar = $.fn.MEC = function(options) {
-    	var settings = $.extend({
+    	let settings = $.extend({
     		calendar_link : "",
     		events: []
         }, options );
 
-        var mini_cal = this;
+        let mini_cal = this;
 
         mini_cal.addClass('mini-cal').html(calenderTpl);
 
-        var tbody = mini_cal.find("#calTbody");
-		var cal_title = mini_cal.find("#monthYear");
-		var cal_footer = mini_cal.find("#calTFooter");
-        var event_title = mini_cal.find("#eventTitle");
-		var events_link = mini_cal.find("#calLink");
+        let tbody = mini_cal.find("#calTbody");
+		let cal_title = mini_cal.find("#monthYear");
+		let cal_footer = mini_cal.find("#calTFooter");
+        let event_title = mini_cal.find("#eventTitle");
+		let events_link = mini_cal.find("#calLink");
 
 		cal_title.text(long_months[cur_month]+" "+cur_year);
         event_title.text("No events today.");
@@ -458,7 +458,7 @@ function loadCompleteCalendar(evt) {
 			cal_footer.css("display", "none");
 
 		mini_cal.find(".month-mover").each(function(){
-			var mover = $(this);
+			let mover = $(this);
 			mover.bind("click", function(){
 				if(mover.hasClass("next"))
 					viewNextMonth();
@@ -479,19 +479,19 @@ function loadCompleteCalendar(evt) {
 			cur_month = month;
 			cur_year = year;
 
-			var ldate = new Date(year, month);
-			var dt = new Date(ldate);
+			let ldate = new Date(year, month);
+			let dt = new Date(ldate);
 			
 			if(ldate.getDate() === 1 && dt.getDay() != 1)
 					tbody.append(last_prev_month_days(dt.getDay()));
 
 			while (ldate.getMonth() === month) {
      			dt = new Date(ldate);
-     			var isToday = areSameDate(ldate, new Date());
-     			var event = null;
-     			var event_index = settings.events.findIndex(function(ev) {
+     			let isToday = areSameDate(ldate, new Date());
+     			let event = null;
+     			let event_index = settings.events.findIndex(function(ev) {
 //			console.log("ev:", ev);
-				var date2 = new Date(ev.year, ev.month-1, ev.day);
+				let date2 = new Date(ev.year, ev.month-1, ev.day);
 //			console.log("date2:", date2);
 //			console.log("year:", date2.getFullYear);
 		     		return areSameDate(dt, date2);//new Date(ev.date));
@@ -508,7 +508,7 @@ function loadCompleteCalendar(evt) {
 
      			ldate.setDate(ldate.getDate() + 1);
 
-     			var buffer_days = 43 - mini_cal.find(".a-date").length;
+     			let buffer_days = 43 - mini_cal.find(".a-date").length;
 
 		        if(ldate.getMonth() != month)
 		        	for (var i = 1; i < buffer_days; i++)
@@ -518,36 +518,36 @@ function loadCompleteCalendar(evt) {
 
  		function last_prev_month_days(day){
  			if(cur_month > 0){
-     			var month_idx = cur_month - 1;
-     			var year_idx = cur_year;
+     			let month_idx = cur_month - 1;
+     			let year_idx = cur_year;
      		}else{
      			if(cur_month < 11){
-     				var month_idx = 0;
-     				var year_idx = cur_year + 1;
+     				let month_idx = 0;
+     				let year_idx = cur_year + 1;
      			}else{
-     				var month_idx = 11;
-     				var year_idx = cur_year - 1;
+     				let month_idx = 11;
+     				let year_idx = cur_year - 1;
      			}
      		}
      		
-     		var prev_month = getMonthDays(month_idx, year_idx);
-     		var last_days = "";
-        	for (var i = day; i > 0; i--)
+     		let prev_month = getMonthDays(month_idx, year_idx);
+     		let last_days = "";
+        	for (let i = day; i > 0; i--)
      			last_days += date_tpl(true, prev_month[ prev_month.length - i]);
 
         	return last_days;
  		}
 
 		function date_tpl(blurred, date, is_today, event){
-			var tpl = "<div class='a-date blurred'><span>"+date+"</span></div>";
+		let tpl = "<div class='a-date blurred'><span>"+date+"</span></div>";
 			if(!blurred){
-		        var cls = is_today ? "current " : "";
+		        let cls = is_today ? "current " : "";
 		        cls += event && event !== null ? "event " : "";
-				var funcval = "emptyday";
+				let funcval = "emptyday";
 		        if(event && event !== null && event !==undefined && event.year){
 					funcval = event.year+event.month+event.day+"";
 				}
-		        var tpl ="<button class='a-date "+cls+"' data-event='"+JSON.stringify(event)+"'><span>"+date+"</span></button>";				
+		        let tpl ="<button class='a-date "+cls+"' data-event='"+JSON.stringify(event)+"'><span>"+date+"</span></button>";				
 			}
 
 			return tpl;
@@ -557,25 +557,25 @@ function loadCompleteCalendar(evt) {
 			if(event && event !== null && event !== undefined){
 				event_title.text(event.title+" ...");
 				console.log("event:", event);
-				var dayid = event.year+event.month+event.day+"";
+				let dayid = event.year+event.month+event.day+"";
 				loadDataCalendarDay(dayid);
 			}else{
 				event_title.text("No events on this day.");
-				var dayid = "emptyday";
+				let dayid = "emptyday";
 				loadDataCalendarDay(dayid);
 			}
 		}
 
 		function viewNextMonth(){
-			var next_month = cur_month < 11 ? cur_month + 1 : 0;
-			var next_year = cur_month < 11 ? cur_year : cur_year + 1;
+			let next_month = cur_month < 11 ? cur_month + 1 : 0;
+			let next_year = cur_month < 11 ? cur_year : cur_year + 1;
 
 			populateCalendar(next_month, next_year);
 		}
 
 		function viewPrevMonth(){
-			var prev_month = cur_month > 0 ? cur_month - 1 : 11;
-			var prev_year = cur_month > 0 ? cur_year : cur_year - 1;
+			let prev_month = cur_month > 0 ? cur_month - 1 : 11;
+			let prev_year = cur_month > 0 ? cur_year : cur_year - 1;
 			
 			populateCalendar(prev_month, prev_year);
 		}
@@ -587,8 +587,8 @@ function loadCompleteCalendar(evt) {
 		}
 
 		function getMonthDays(month, year) {
-		     var date = new Date(year, month, 1);
-		     var days = [];
+		     let date = new Date(year, month, 1);
+		     let days = [];
 		     while (date.getMonth() === month) {
 		        days.push(date.getDate());
 		        date.setDate(date.getDate() + 1);
