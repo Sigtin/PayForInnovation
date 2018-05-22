@@ -665,8 +665,9 @@ html .calendar-card .card-head{
 }
 
 #calTbody .a-date.current.event{
-    background-color: purple;
-    color: #000;
+/*    background-color: purple;*/
+/*    color: #000;*/
+	border: 2px solid var(--grapen);
 }
 
 #calTbody .a-date:focus,
