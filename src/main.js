@@ -62,7 +62,7 @@ contentHolder.innerHTML=el;
 
 
 //Page content
-let request1 = new XMLHttpRequest();	
+let request1 = new XMLHttpRequest();
 let request2 = new XMLHttpRequest();
 let request3 = new XMLHttpRequest();
 let request4 = new XMLHttpRequest();
@@ -79,7 +79,6 @@ let loadData1 = () =>{
 	  	request1.send();
 	}
 }
-
 let loadData2 = () =>{
 	if(document.getElementById("projects-area")){
 		request2.open('GET', 'json/projects.json');
