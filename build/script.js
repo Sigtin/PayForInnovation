@@ -1,7 +1,7 @@
 let long_months = ["January", "February", "March", "April", "May", "June", "July","August", "September", "October", "November", "December"];
 let long_days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
-let fillhead = () =>{
+let fillhead = ()=>{
 	let el = "";
 	el+='<meta name="viewport" content="width=device-width, initial-scale=1">';//'<meta name="viewport" content="width=device-width">';
 	//'<meta name="viewport" content="width=device-width, initial-scale=1">'
@@ -17,17 +17,19 @@ fillhead();
 
 //Foot
 let requestFoot = new XMLHttpRequest();
-loadFoot();
-let loadFoot = () =>{
+
+let loadFoot = () => {
 	requestFoot.open('GET', 'json/foot.json');
 	requestFoot.onload = loadCompleteFoot;
   	requestFoot.send();	
 }
-let loadCompleteFoot = (evt) =>{
+
+
+function loadCompleteFoot(evt) {
   	let dataX = JSON.parse(requestFoot.responseText);
 	buildFoot(dataX["foot-info"]);
 }
-let buildFoot = (jsondata) =>{
+function buildFoot(jsondata){
 	let el = "<div>";
 	let x;
 	for(let i=0; i<jsondata.length; i++){
@@ -42,12 +44,12 @@ let buildFoot = (jsondata) =>{
 //Nav
 let requestNav = new XMLHttpRequest();
 loadNav();
-let loadNav = () =>{
+function loadNav() {
 	requestNav.open('GET', 'json/nav.json');
 	requestNav.onload = loadCompleteNav;
   	requestNav.send();
 } 
-let loadCompleteNav = (evt) =>{
+function loadCompleteNav(evt) {
   	let dataX = JSON.parse(requestNav.responseText);
 	buildNav(dataX["nav-info"]);
 	
@@ -56,7 +58,7 @@ let loadCompleteNav = (evt) =>{
 	});
 	resized();
 }
-let buildNav = (jsondata) =>{
+function buildNav(jsondata){
 	let el = "";	
 	let elfull = "";	
 	let elr = "";//opening
@@ -131,7 +133,7 @@ let buildNav = (jsondata) =>{
 	conHol.innerHTML=elfull;
 	setActive();
 }
-let setActive = () =>{	
+function setActive(){	
 	let path = window.location.pathname;
 	let page = path.split("/").pop();
 	console.log(page);
@@ -145,7 +147,7 @@ let setActive = () =>{
 	}
 }
 
-let resized = () =>{
+function resized(){
 	if(window.innerWidth<768){ showtitles();}
 	else{ hidetitles();}
 	
@@ -175,7 +177,7 @@ function showtitles(){
     $('[data-toggle="tooltip"]').tooltip('dispose');   
 	});
 }
-let hidetitles = () =>{
+function hidetitles(){
 	let iconed = document.getElementsByClassName("sidetitle");
 	let i;
 	for(i=0; i<iconed.length; i++){
@@ -189,10 +191,11 @@ let hidetitles = () =>{
 	});
 }
 
-let buildElementsContact = (jsondata) =>{
+function buildElementsContact(jsondata){
 	let el = "";
 	let x;
-	for(let i=0; i<jsondata.length; i++){
+	let i;
+	for( i=0; i<jsondata.length; i++){
 		x=jsondata[i];
 		el +='<div class="contact-card box-shadow">'
 			+'<div class="card-head"><h3>'+x.name+'</h3></div>'
@@ -219,10 +222,11 @@ let buildElementsContact = (jsondata) =>{
 	let contentHolder = document.getElementById("contacts-area");
 	contentHolder.innerHTML=el;
 }
-let buildElementsProject = (jsondata) =>{
+function buildElementsProject(jsondata){
 	let el = "";
 	let x;
-	for(let i=0; i<jsondata.length; i++){
+	let i;
+	for(i=0; i<jsondata.length; i++){
 		x=jsondata[i];
 		el +='<div class="project-card box-shadow">'
 			+'<div class="row card-head"><h4>'+x.name+'</h4></div>'
@@ -242,10 +246,11 @@ let buildElementsProject = (jsondata) =>{
 	//<div class="project-card"><div class="card-info"><div class="row card-head"><h4>'+x.name+'</h4></div><div class="row card-body"><div class="col-md-2"><h6>Project Details:</h6></div><div class="col-md-10"><p>'+x.details+'</p></div></div></div></div>
 //}
 }
-let buildElementsAward = (jsondata) =>{
+function buildElementsAward(jsondata){
 	let el = "";
 	let x;
-	for(let i=0; i<jsondata.length; i++){
+	let i;
+	for(i=0; i<jsondata.length; i++){
 		x=jsondata[i];
 		el +='<div class="row award-card box-shadow">'
 			+'<div class="col-lg-2 card-image">'
@@ -268,10 +273,12 @@ let buildElementsAward = (jsondata) =>{
 //	el +='<div class="contact-card"><div class="card-head"><h3>'+x.name+'</h3></div></div>';
 //}
 }
-let buildElementsCalendar = (jsondata) =>{
-		console.log("Calendar build invoked:", calendarDay);
+function buildElementsCalendar(jsondata){
+	console.log("Calendar build invoked:", calendarDay);
 	let el = "";
 	let x;
+	let jsondata2;
+	let i;
 	if(calendarDay=="emptyday"){	}
 	else {
 //		if(calendarDay.charAt(0)=="M"){
@@ -292,8 +299,9 @@ let buildElementsCalendar = (jsondata) =>{
 			console.log("day:", calendarDay);
 			let y;
 			let t=0;
-			let jsondata2 = [];
-			for(let i=0; i<jsondata.length; i++){
+			let i;
+		 	jsondata2 = [];
+			for(i=0; i<jsondata.length; i++){
 				y=jsondata[i];
 				if((y.year+y.month+y.day)==calendarDay){
 					jsondata2[t] = y;
@@ -303,7 +311,7 @@ let buildElementsCalendar = (jsondata) =>{
 			jsondata = jsondata2;
 		}
 		
-		for(let i=0; i<jsondata.length; i++){
+		for(i=0; i<jsondata.length; i++){
 			x=jsondata[i];
 			let time = x.time+' '+(x.isAM?'AM': 'PM');
 			el +='<div class="calendar-card box-shadow '+x.year+x.month+x.day+'">'// id="'+x.year+x.month+x.day+x.time+x.isAM+'"
@@ -334,7 +342,7 @@ loadDataContact();
 loadDataProject();
 loadDataAward();
 loadDataCalendar();
-let loadDataContact = () =>{
+function loadDataContact() {
 	if(document.getElementById("contacts-area")){
 		requestContact = new XMLHttpRequest();
 		requestContact.open('GET', 'json/contacts.json');
@@ -342,7 +350,7 @@ let loadDataContact = () =>{
 	  	requestContact.send();
 	}
 }
-let loadDataProject = () =>{
+function loadDataProject() {
 	if(document.getElementById("projects-area")){
 		requestProject = new XMLHttpRequest();
 		requestProject.open('GET', 'json/projects.json');
@@ -350,7 +358,7 @@ let loadDataProject = () =>{
   		requestProject.send();
 	}
 }
-let loadDataAward = () =>{
+function loadDataAward() {
 	if(document.getElementById("awards-area")){
 		requestAward = new XMLHttpRequest();
 		requestAward.open('GET', 'json/awards.json');	
@@ -358,7 +366,7 @@ let loadDataAward = () =>{
   		requestAward.send();
 	}
 }
-let loadDataCalendar = () =>{
+function loadDataCalendar() {
 	if(document.getElementById("calendars-area")){
 		requestCalendar = new XMLHttpRequest();
 		requestCalendar.open('GET', 'json/calendars.json');	
@@ -366,26 +374,26 @@ let loadDataCalendar = () =>{
   		requestCalendar.send();
 	}	
 } 
-let loadDataCalendarDay = (dayid) =>{
+function loadDataCalendarDay(dayid) {
 	let dataX = JSON.parse(requestCalendar.responseText);
 	calendarDay = dayid;
 	console.log("dayid: ", dayid);
 	buildElementsCalendar(dataX["calendar-info"]);
 } 
 
-let loadCompleteContact = (evt) => {
+function loadCompleteContact(evt) {
   	let dataX = JSON.parse(requestContact.responseText);
 	buildElementsContact(dataX["contact-info"]);
 }
-let loadCompleteProject = (evt) => {
+function loadCompleteProject(evt) {
 	let dataX = JSON.parse(requestProject.responseText);
 	buildElementsProject(dataX["project-info"]);
 }
-let loadCompleteAward = (evt) => {
+function loadCompleteAward(evt) {
   	let dataX = JSON.parse(requestAward.responseText);
 	buildElementsAward(dataX["award-info"]);
 }
-let loadCompleteCalendar = (evt) => {
+function loadCompleteCalendar(evt) {
 	let dataX = JSON.parse(requestCalendar.responseText);
 	buildElementsCalendar(dataX["calendar-info"]);
 	$(document).ready(function(){
@@ -433,6 +441,7 @@ let loadCompleteCalendar = (evt) => {
 	let cur_year = today.getFullYear();
 
     $.fn.miniEventCalendar = $.fn.MEC = function(options) {
+		let mover;
     	let settings = $.extend({
     		calendar_link : "",
     		events: []
@@ -458,7 +467,7 @@ let loadCompleteCalendar = (evt) => {
 			cal_footer.css("display", "none");
 
 		mini_cal.find(".month-mover").each(function(){
-			let mover = $(this);
+			mover = $(this);
 			mover.bind("click", function(){
 				if(mover.hasClass("next"))
 					viewNextMonth();
@@ -472,7 +481,8 @@ let loadCompleteCalendar = (evt) => {
 		        showEvent($(this).data('event'));
 		});
 
-		let populateCalendar = (month, year) => {
+		function populateCalendar(month, year) {
+			let i;
 			tbody.html("");
 			cal_title.text(long_months[month] + " " + year);
 
@@ -511,22 +521,24 @@ let loadCompleteCalendar = (evt) => {
      			let buffer_days = 43 - mini_cal.find(".a-date").length;
 
 		        if(ldate.getMonth() != month)
-		        	for (var i = 1; i < buffer_days; i++)
+		        	for (i = 1; i < buffer_days; i++)
 		     			tbody.append(date_tpl(true, i));
      		}
  		}
 
- 		let last_prev_month_days = (day) => {
+ 		function last_prev_month_days(day){
+			 let month_idx;
+			 let year_idx;
  			if(cur_month > 0){
-     			let month_idx = cur_month - 1;
-     			let year_idx = cur_year;
+     			 month_idx = cur_month - 1;
+     			 year_idx = cur_year;
      		}else{
      			if(cur_month < 11){
-     				let month_idx = 0;
-     				let year_idx = cur_year + 1;
+     				month_idx = 0;
+     				year_idx = cur_year + 1;
      			}else{
-     				let month_idx = 11;
-     				let year_idx = cur_year - 1;
+     				month_idx = 11;
+     				year_idx = cur_year - 1;
      			}
      		}
      		
@@ -538,7 +550,8 @@ let loadCompleteCalendar = (evt) => {
         	return last_days;
  		}
 
-		let date_tpl = (blurred, date, is_today, event) => {
+		function date_tpl(blurred, date, is_today, event){
+		
 		let tpl = "<div class='a-date blurred'><span>"+date+"</span></div>";
 			if(!blurred){
 		        let cls = is_today ? "current " : "";
@@ -547,49 +560,50 @@ let loadCompleteCalendar = (evt) => {
 		        if(event && event !== null && event !==undefined && event.year){
 					funcval = event.year+event.month+event.day+"";
 				}
-		        let tpl ="<button class='a-date "+cls+"' data-event='"+JSON.stringify(event)+"'><span>"+date+"</span></button>";				
+		    	 tpl ="<button class='a-date "+cls+"' data-event='"+JSON.stringify(event)+"'><span>"+date+"</span></button>";				
 			}
 
 			return tpl;
 		}
 
-		let showEvent = (event) => {
+		function showEvent(event){
+			let dayid;
 			if(event && event !== null && event !== undefined){
 				event_title.text(event.title+" ...");
 				console.log("event:", event);
-				let dayid = event.year+event.month+event.day+"";
+				dayid = event.year+event.month+event.day+"";
 				loadDataCalendarDay(dayid);
 			}else{
 				event_title.text("No events on this day.");
-				let dayid = "emptyday";
+				dayid = "emptyday";
 				loadDataCalendarDay(dayid);
 			}
 		}
 
-		let viewNextMonth = () => {
+		function viewNextMonth(){
 			let next_month = cur_month < 11 ? cur_month + 1 : 0;
 			let next_year = cur_month < 11 ? cur_year : cur_year + 1;
 
 			populateCalendar(next_month, next_year);
 		}
 
-		let viewPrevMonth = () => {
+		function viewPrevMonth(){
 			let prev_month = cur_month > 0 ? cur_month - 1 : 11;
 			let prev_year = cur_month > 0 ? cur_year : cur_year - 1;
 			
 			populateCalendar(prev_month, prev_year);
 		}
 
-		let areSameDate = (d1, d2) => {
+		function areSameDate(d1, d2) {
 			return d1.getFullYear() == d2.getFullYear()
 		        && d1.getMonth() == d2.getMonth()
 		        && d1.getDate() == d2.getDate();
 		}
 
-		let getMonthDays = (month, year) => {
+		function getMonthDays(month, year) {
 		     let date = new Date(year, month, 1);
 		     let days = [];
-		     while (date.getMonth() === month) {
+		      	while (date.getMonth() === month) {
 		        days.push(date.getDate());
 		        date.setDate(date.getDate() + 1);
 		     }
@@ -603,3 +617,5 @@ let loadCompleteCalendar = (evt) => {
  
 }( jQuery ));
 	}
+
+loadFoot();
