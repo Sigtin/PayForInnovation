@@ -544,7 +544,7 @@ let loadCompleteCalendar = (evt) =>{
         	return last_days;
  		}
 
-		function date_tpl(blurred, date, is_today, event){
+		let date_tpl = (blurred, date, is_today, event) => {
 		
 		let tpl = "<div class='a-date blurred'><span>"+date+"</span></div>";
 			if(!blurred){
@@ -560,7 +560,7 @@ let loadCompleteCalendar = (evt) =>{
 			return tpl;
 		}
 
-		function showEvent(event){
+		let showEvent = (event) =>{
 			let dayid;
 			if(event && event !== null && event !== undefined){
 				event_title.text(event.title+" ...");
@@ -574,27 +574,27 @@ let loadCompleteCalendar = (evt) =>{
 			}
 		}
 
-		function viewNextMonth(){
+		let viewNextMonth = () => {
 			let next_month = cur_month < 11 ? cur_month + 1 : 0;
 			let next_year = cur_month < 11 ? cur_year : cur_year + 1;
 
 			populateCalendar(next_month, next_year);
 		}
 
-		function viewPrevMonth(){
+		let viewPrevMonth = () => {
 			let prev_month = cur_month > 0 ? cur_month - 1 : 11;
 			let prev_year = cur_month > 0 ? cur_year : cur_year - 1;
 			
 			populateCalendar(prev_month, prev_year);
 		}
 
-		function areSameDate(d1, d2) {
+		let areSameDate=(d1, d2) => {
 			return d1.getFullYear() == d2.getFullYear()
 		        && d1.getMonth() == d2.getMonth()
 		        && d1.getDate() == d2.getDate();
 		}
 
-		function getMonthDays(month, year) {
+		let getMonthDays = (month, year) => {
 		     let date = new Date(year, month, 1);
 		     let days = [];
 		      	while (date.getMonth() === month) {
