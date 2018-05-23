@@ -25,11 +25,11 @@ let loadFoot = () => {
 }
 
 
-function loadCompleteFoot(evt) {
+let loadCompleteFoot = (evt) => {
   	let dataX = JSON.parse(requestFoot.responseText);
 	buildFoot(dataX["foot-info"]);
 }
-function buildFoot(jsondata){
+let buildFoot = (jsondata) =>{
 	let el = "<div>";
 	let x;
 	for(let i=0; i<jsondata.length; i++){
@@ -41,15 +41,34 @@ function buildFoot(jsondata){
 	conHol.innerHTML=el;
 }
 
+let resized = () =>{
+	if(window.innerWidth<768){ showtitles();}
+	else{ hidetitles();}
+	
+	if(document.getElementById('calendar-minimal-size')){		
+		let doc = document.getElementById('calendar-minimal-size');
+		if(window.innerWidth<577){// 518
+			console.log("window min");
+			doc.style.padding = 0;
+			doc.style.marginLeft = "-15px";
+			doc.style.marginRight = "-15px";		
+		}
+		else{		
+			doc.style.padding = 0;
+			doc.style.marginLeft = "10px";
+			doc.style.marginRight = "10px";
+		}
+	}	
+}
+
 //Nav
 let requestNav = new XMLHttpRequest();
-loadNav();
-function loadNav() {
+let loadNav = () =>{
 	requestNav.open('GET', 'json/nav.json');
 	requestNav.onload = loadCompleteNav;
   	requestNav.send();
 } 
-function loadCompleteNav(evt) {
+let loadCompleteNav = (evt) => {
   	let dataX = JSON.parse(requestNav.responseText);
 	buildNav(dataX["nav-info"]);
 	
@@ -58,7 +77,21 @@ function loadCompleteNav(evt) {
 	});
 	resized();
 }
-function buildNav(jsondata){
+
+let setActive = ()=>{	
+	let path = window.location.pathname;
+	let page = path.split("/").pop();
+	console.log(page);
+	if(page=="_applicationsubmitted.html"){
+		page="_application.html";
+	}
+		
+	let temp = document.getElementById(page);
+	if(temp != null){
+		temp.className +=" active";		
+	}
+}
+let buildNav = (jsondata) =>{
 	let el = "";	
 	let elfull = "";	
 	let elr = "";//opening
@@ -133,41 +166,9 @@ function buildNav(jsondata){
 	conHol.innerHTML=elfull;
 	setActive();
 }
-function setActive(){	
-	let path = window.location.pathname;
-	let page = path.split("/").pop();
-	console.log(page);
-	if(page=="_applicationsubmitted.html"){
-		page="_application.html";
-	}
-		
-	let temp = document.getElementById(page);
-	if(temp != null){
-		temp.className +=" active";		
-	}
-}
 
-function resized(){
-	if(window.innerWidth<768){ showtitles();}
-	else{ hidetitles();}
-	
-	if(document.getElementById('calendar-minimal-size')){		
-		let doc = document.getElementById('calendar-minimal-size');
-		if(window.innerWidth<577){// 518
-			console.log("window min");
-			doc.style.padding = 0;
-			doc.style.marginLeft = "-15px";
-			doc.style.marginRight = "-15px";		
-		}
-		else{		
-			doc.style.padding = 0;
-			doc.style.marginLeft = "10px";
-			doc.style.marginRight = "10px";
-		}
-	}
-	
-}
-function showtitles(){
+
+let showtitles = () =>{
 	let iconed = document.getElementsByClassName("sidetitle");
 	let i;
 	for(i=0; i<iconed.length; i++){
@@ -177,7 +178,7 @@ function showtitles(){
     $('[data-toggle="tooltip"]').tooltip('dispose');   
 	});
 }
-function hidetitles(){
+let hidetitles = () =>{
 	let iconed = document.getElementsByClassName("sidetitle");
 	let i;
 	for(i=0; i<iconed.length; i++){
@@ -191,7 +192,7 @@ function hidetitles(){
 	});
 }
 
-function buildElementsContact(jsondata){
+let buildElementsContact = (jsondata) =>{
 	let el = "";
 	let x;
 	let i;
@@ -222,7 +223,7 @@ function buildElementsContact(jsondata){
 	let contentHolder = document.getElementById("contacts-area");
 	contentHolder.innerHTML=el;
 }
-function buildElementsProject(jsondata){
+let buildElementsProject = (jsondata) =>{
 	let el = "";
 	let x;
 	let i;
@@ -246,7 +247,7 @@ function buildElementsProject(jsondata){
 	//<div class="project-card"><div class="card-info"><div class="row card-head"><h4>'+x.name+'</h4></div><div class="row card-body"><div class="col-md-2"><h6>Project Details:</h6></div><div class="col-md-10"><p>'+x.details+'</p></div></div></div></div>
 //}
 }
-function buildElementsAward(jsondata){
+let buildElementsAward = (jsondata) =>{
 	let el = "";
 	let x;
 	let i;
@@ -273,7 +274,7 @@ function buildElementsAward(jsondata){
 //	el +='<div class="contact-card"><div class="card-head"><h3>'+x.name+'</h3></div></div>';
 //}
 }
-function buildElementsCalendar(jsondata){
+let buildElementsCalendar = (jsondata) =>{
 	console.log("Calendar build invoked:", calendarDay);
 	let el = "";
 	let x;
@@ -338,11 +339,8 @@ let requestCalendar;// = new XMLHttpRequest();
 let calendarDay = 'emptyday';
 //var type="";
 //var contentHolder="";
-loadDataContact();
-loadDataProject();
-loadDataAward();
-loadDataCalendar();
-function loadDataContact() {
+
+let loadDataContact = () =>{
 	if(document.getElementById("contacts-area")){
 		requestContact = new XMLHttpRequest();
 		requestContact.open('GET', 'json/contacts.json');
@@ -350,7 +348,7 @@ function loadDataContact() {
 	  	requestContact.send();
 	}
 }
-function loadDataProject() {
+let loadDataProject = () => {
 	if(document.getElementById("projects-area")){
 		requestProject = new XMLHttpRequest();
 		requestProject.open('GET', 'json/projects.json');
@@ -358,7 +356,7 @@ function loadDataProject() {
   		requestProject.send();
 	}
 }
-function loadDataAward() {
+let loadDataAward = () =>{
 	if(document.getElementById("awards-area")){
 		requestAward = new XMLHttpRequest();
 		requestAward.open('GET', 'json/awards.json');	
@@ -366,7 +364,7 @@ function loadDataAward() {
   		requestAward.send();
 	}
 }
-function loadDataCalendar() {
+let loadDataCalendar = () =>{
 	if(document.getElementById("calendars-area")){
 		requestCalendar = new XMLHttpRequest();
 		requestCalendar.open('GET', 'json/calendars.json');	
@@ -374,26 +372,26 @@ function loadDataCalendar() {
   		requestCalendar.send();
 	}	
 } 
-function loadDataCalendarDay(dayid) {
+let loadDataCalendarDay = (dayid) =>{
 	let dataX = JSON.parse(requestCalendar.responseText);
 	calendarDay = dayid;
 	console.log("dayid: ", dayid);
 	buildElementsCalendar(dataX["calendar-info"]);
 } 
 
-function loadCompleteContact(evt) {
+let loadCompleteContact = (evt) =>{
   	let dataX = JSON.parse(requestContact.responseText);
 	buildElementsContact(dataX["contact-info"]);
 }
-function loadCompleteProject(evt) {
+let loadCompleteProject = (evt) =>{
 	let dataX = JSON.parse(requestProject.responseText);
 	buildElementsProject(dataX["project-info"]);
 }
-function loadCompleteAward(evt) {
+let loadCompleteAward = (evt) =>{
   	let dataX = JSON.parse(requestAward.responseText);
 	buildElementsAward(dataX["award-info"]);
 }
-function loadCompleteCalendar(evt) {
+let loadCompleteCalendar = (evt) =>{
 	let dataX = JSON.parse(requestCalendar.responseText);
 	buildElementsCalendar(dataX["calendar-info"]);
 	$(document).ready(function(){
@@ -407,34 +405,12 @@ function loadCompleteCalendar(evt) {
 //body: data-spy="scroll"
 //set div id = event.id, href="#section1"
 //function cal(){
+
+
 	
 (function( $ ) {
 	console.log("$ executed");
-	let calenderTpl = '<div id="calTitle">'
-	+'<button class="month-mover prev">'
-		+'<svg fill="#FFFFFF" height="30" viewBox="0 0 24 24" width="30" xmlns="http://www.w3.org/2000/svg">'
-			+'<path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>'
-			+'<path d="M0 0h24v24H0z" fill="none"/></svg></button>'
-	+'<div id="monthYear"></div>'
-	+'<button class="month-mover next">'
-		+'<svg fill="#FFFFFF" height="30" viewBox="0 0 24 24" width="30" xmlns="http://www.w3.org/2000/svg">'
-			+'<path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>'
-			+'<path d="M0 0h24v24H0z" fill="none"/></svg></button></div>'
-	+'<div>'
-		+'<div id="calThead">'
-			+'<div>S</div>'
-			+'<div>M</div>'
-			+'<div>T</div>'
-			+'<div>W</div>'
-			+'<div>T</div>'
-			+'<div>F</div>'
-			+'<div>S</div>'
-		+'</div>'
-		+'<div id="calTbody"></div>'
-	+'</div>'
-	+'<div id="calTFooter">'
-		+'<h3 id="eventTitle">No events today.</h3>'
-		+'<a href="#calendars-area" id="calLink" onclick="loadDataCalendarDay(\'all\')">ALL EVENTS</a></div>';// onclick="loadDataCalendarDay(\'all\')"
+	// onclick="loadDataCalendarDay(\'all\')"
 	
 	let today = new Date();
 	let cur_month = today.getMonth();
@@ -447,7 +423,7 @@ function loadCompleteCalendar(evt) {
     		events: []
         }, options );
 
-        let mini_cal = this;
+    	mini_cal = this;
 
         mini_cal.addClass('mini-cal').html(calenderTpl);
 
@@ -463,25 +439,43 @@ function loadCompleteCalendar(evt) {
 //		events_link.attr("href", '#calendars-area');
 //		events_link.attr("onclick", "loadDataCalendarDay('M"+(cur_year+cur_month)+"')");
 
+		let count= 0;
 		if(!settings.calendar_link.length && !settings.events.length)
 			cal_footer.css("display", "none");
 
-		mini_cal.find(".month-mover").each(function(){
-			mover = $(this);
-			mover.bind("click", function(){
-				if(mover.hasClass("next"))
-					viewNextMonth();
-				else
-					viewPrevMonth();
+			
+		//  mini_cal.find(".month-mover").each(function(){
+		// 	 mover = $(this);
+		// 	 console.log("m:", mover);
+		//  	mover.bind("click", function(){
+		//  		if(count==1){//!mover.hasClass("next")){
+		// 			 viewNextMonth();
+		// 			 count=0;
+		// 		 }
+		// 		else if(count==0){//mover.hasClass("next")){
+		// 			 viewPrevMonth();
+		// 			 count =1;
+		//  		}
+		//  	});
+		//  });
+		 mini_cal.find(".next").bind("click", function(){
+			// if(count==1){//!mover.hasClass("next")){
+				viewNextMonth();
+				//count=0;
 			});
-		});
+			
+			mini_cal.find(".prev").bind("click", function(){
+				// if(count==1){//!mover.hasClass("next")){
+					viewPrevMonth();
+					//count=0;
+				});
 
 		mini_cal.on("click, focusin", ".a-date", function(){
 		    if(!$(this).hasClass('blurred'))
 		        showEvent($(this).data('event'));
 		});
 
-		function populateCalendar(month, year) {
+		let populateCalendar = (month, year) => {
 			let i;
 			tbody.html("");
 			cal_title.text(long_months[month] + " " + year);
@@ -526,7 +520,7 @@ function loadCompleteCalendar(evt) {
      		}
  		}
 
- 		function last_prev_month_days(day){
+ 		let last_prev_month_days = (day) =>{
 			 let month_idx;
 			 let year_idx;
  			if(cur_month > 0){
@@ -616,6 +610,37 @@ function loadCompleteCalendar(evt) {
     };
  
 }( jQuery ));
+
+let calenderTpl = '<div id="calTitle">'
++'<button class="month-mover prev">'
+	+'<svg fill="#FFFFFF" height="30" viewBox="0 0 24 24" width="30" xmlns="http://www.w3.org/2000/svg">'
+		+'<path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>'
+		+'<path d="M0 0h24v24H0z" fill="none"/></svg></button>'
++'<div id="monthYear"></div>'
++'<button class="month-mover next">'
+	+'<svg fill="#FFFFFF" height="30" viewBox="0 0 24 24" width="30" xmlns="http://www.w3.org/2000/svg">'
+		+'<path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>'
+		+'<path d="M0 0h24v24H0z" fill="none"/></svg></button></div>'
++'<div>'
+	+'<div id="calThead">'
+		+'<div>S</div>'
+		+'<div>M</div>'
+		+'<div>T</div>'
+		+'<div>W</div>'
+		+'<div>T</div>'
+		+'<div>F</div>'
+		+'<div>S</div>'
+	+'</div>'
+	+'<div id="calTbody"></div>'
++'</div>'
++'<div id="calTFooter">'
+	+'<h3 id="eventTitle">No events today.</h3>'
+	+'<a href="#calendars-area" id="calLink" onclick="loadDataCalendarDay(\'all\')">ALL EVENTS</a></div>';
 	}
 
 loadFoot();
+loadNav();
+loadDataContact();
+loadDataProject();
+loadDataAward();
+loadDataCalendar();
